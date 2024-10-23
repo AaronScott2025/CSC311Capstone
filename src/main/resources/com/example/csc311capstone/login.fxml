@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.csc311capstone.MainController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<Pane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="146.0" layoutY="31.0" prefHeight="83.0" prefWidth="507.0" text="Welcome To FutureLink!">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Label>
+      <Button layoutX="605.0" layoutY="441.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="162.0" text="Create Account!" />
+      <ImageView fx:id="enterbtn" fitHeight="38.0" fitWidth="43.0" layoutX="526.0" layoutY="295.0" onMouseClicked="#enteredLogin">
+         <image>
+            <Image url="@../../../arrow_forward_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="passTxt" layoutX="292.0" layoutY="301.0" prefHeight="25.0" prefWidth="215.0" promptText="Password" />
+      <TextField fx:id="userTxt" layoutX="292.0" layoutY="263.0" prefHeight="25.0" prefWidth="215.0" promptText="Username" />
+      <Label layoutX="260.0" layoutY="86.0" prefHeight="83.0" prefWidth="279.0" text="Innovate your way foward" textFill="#7c7c7c">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="131.0" fitWidth="131.0" layoutX="653.0" layoutY="21.0">
+         <image>
+            <Image url="@../../../FutureLink.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
