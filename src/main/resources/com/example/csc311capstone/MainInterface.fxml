@@ -1,16 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.csc311capstone.MainController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311capstone.MainController">
+   <children>
+      <ImageView fitHeight="559.0" fitWidth="950.0">
+         <image>
+            <Image url="@../../../background.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="budget" layoutX="746.0" layoutY="200.0" mnemonicParsing="false" onAction="#budgetPress" prefHeight="58.0" prefWidth="160.0" text="Budgeting" />
+      <Button fx:id="invest" layoutX="746.0" layoutY="125.0" mnemonicParsing="false" onAction="#investPress" prefHeight="58.0" prefWidth="160.0" text="Investments" />
+      <Button fx:id="career" layoutX="746.0" layoutY="275.0" mnemonicParsing="false" onAction="#careerPress" prefHeight="58.0" prefWidth="160.0" text="Career/Education" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9b9b9" height="115.0" layoutX="-17.0" layoutY="444.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
+      <MenuBar prefHeight="28.0" prefWidth="950.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="System">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button fx:id="relocate" layoutX="746.0" layoutY="350.0" mnemonicParsing="false" onAction="#relocatePressed" prefHeight="58.0" prefWidth="160.0" text="Relocation" />
+      <Label layoutX="117.0" layoutY="430.0" prefHeight="129.0" prefWidth="449.0" text="Welcome: Username!">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
