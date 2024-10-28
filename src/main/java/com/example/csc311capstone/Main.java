@@ -16,14 +16,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.primaryStage.setResizable(false);
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("com/example/csc311capstone/splash.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/csc311capstone/splash.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.show();
-            Parent newRoot = FXMLLoader.load(getClass().getResource("com/example/csc311capstone/login.fxml"));
+            Parent newRoot = FXMLLoader.load(getClass().getResource("/com/example/csc311capstone/login.fxml"));
             Scene currentScene = primaryStage.getScene();
             Parent currentRoot = currentScene.getRoot();
             FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), currentRoot);
@@ -36,18 +35,10 @@ public class Main extends Application {
                 login.initStyle(StageStyle.DECORATED);
                 login.show();
                 primaryStage.close();
-
             });
-
             fadeOut.play();
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-
-
-    public static Stage getPrimaryStage() {
-        return primaryStage;
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311capstone.LoginController">
+   <children>
+      <ImageView fx:id="enterbtnCREATE" fitHeight="38.0" fitWidth="43.0" layoutX="421.0" layoutY="327.0" onMouseClicked="#enteredCreate">
+         <image>
+            <Image url="@../../../arrow_forward_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="passTxtCREATE" layoutX="185.0" layoutY="333.0" prefHeight="25.0" prefWidth="215.0" promptText="Password" />
+      <TextField fx:id="userTxtCREATE" layoutX="185.0" layoutY="263.0" prefHeight="25.0" prefWidth="215.0" promptText="Username" />
+      <Label layoutX="189.0" layoutY="111.0" prefHeight="83.0" prefWidth="215.0" text="Create An Account!" textFill="#7c7c7c">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="167.0" layoutY="398.0" prefHeight="17.0" prefWidth="259.0" visible="false" />
+   </children>
+</Pane>

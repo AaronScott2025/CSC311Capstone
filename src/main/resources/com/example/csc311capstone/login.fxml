@@ -7,17 +7,17 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311capstone.LoginController">
    <children>
       <Label layoutX="146.0" layoutY="31.0" prefHeight="83.0" prefWidth="507.0" text="Welcome To FutureLink!">
          <font>
             <Font size="47.0" />
          </font>
       </Label>
-      <Button layoutX="605.0" layoutY="441.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="162.0" text="Create Account!" />
+      <Button fx:id="createacct" layoutX="605.0" layoutY="441.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="38.0" prefWidth="162.0" text="Create Account!" />
       <ImageView fx:id="enterbtn" fitHeight="38.0" fitWidth="43.0" layoutX="526.0" layoutY="295.0" onMouseClicked="#enteredLogin">
          <image>
             <Image url="@../../../arrow_forward_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
@@ -35,5 +35,6 @@
             <Image url="@../../../FutureLink.png" />
          </image>
       </ImageView>
+      <Rectangle fx:id="rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="38.0" layoutX="526.0" layoutY="295.0" onMouseClicked="#enteredLogin" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="43.0" />
    </children>
 </Pane>
