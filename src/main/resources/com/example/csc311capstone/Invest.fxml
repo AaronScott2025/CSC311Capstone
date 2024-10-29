@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311capstone.MainController">
    <children>
       <Label layoutX="228.0" prefHeight="100.0" prefWidth="248.0" text="Instructions">
          <font>
@@ -18,7 +18,7 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="255.0" text="Starting value:">
+      <Label layoutX="47.0" layoutY="256.0" text="Starting value:">
          <font>
             <Font size="23.0" />
          </font>
@@ -33,11 +33,13 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <TextField fx:id="startingTXT" layoutX="260.0" layoutY="260.0" prefHeight="25.0" prefWidth="185.0" promptText="Please enter a numerical value" />
+      <TextField fx:id="startingTXT" layoutX="260.0" layoutY="261.0" prefHeight="25.0" prefWidth="185.0" promptText="Please enter a numerical value" />
       <TextField fx:id="yearlyTXT" layoutX="260.0" layoutY="355.0" prefHeight="25.0" prefWidth="185.0" promptText="Please enter a numerical value" />
       <TextField fx:id="yearsTXT" layoutX="260.0" layoutY="455.0" prefHeight="25.0" prefWidth="185.0" promptText="Please enter a numerical value" />
       <Label layoutX="32.0" layoutY="285.0" prefHeight="58.0" prefWidth="185.0" text="How much money you are putting upfront for investing" textAlignment="CENTER" textFill="#868686" wrapText="true" />
       <Label layoutX="32.0" layoutY="380.0" prefHeight="58.0" prefWidth="185.0" text="How much money you are investing per year" textAlignment="CENTER" textFill="#868686" wrapText="true" />
       <Label layoutX="32.0" layoutY="480.0" prefHeight="58.0" prefWidth="185.0" text="Duration of time that your investments will grow" textAlignment="CENTER" textFill="#868686" wrapText="true" />
+      <Button fx:id="goBTN" layoutX="535.0" layoutY="517.0" mnemonicParsing="false" onAction="#showInvestments" prefHeight="42.0" prefWidth="108.0" text="Go!" />
+      <Button fx:id="exitBTN" layoutX="535.0" layoutY="575.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="42.0" prefWidth="108.0" text="Exit" />
    </children>
 </Pane>
