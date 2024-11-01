@@ -35,6 +35,7 @@ public class LoginController {
     private PasswordField passTxt;
     private static ConnDbOps cd;
     private int x = 3;
+    private Stage stage = Main.getPrimaryStage();
 
 
 
@@ -114,5 +115,8 @@ public class LoginController {
             System.out.println("Unable to register user");
         }
         System.out.println(userTxtCREATE.getText());
+    }
+    public Stage getStage() {
+        return stage;
     }
 }
