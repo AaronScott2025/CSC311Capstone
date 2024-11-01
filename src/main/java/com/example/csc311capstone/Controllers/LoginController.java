@@ -25,23 +25,9 @@ public class LoginController {
     private Rectangle rect;
     @FXML
     private ImageView enterbtn;
-
-    @FXML
-    private Pane loginPane;
-
     @FXML
     private PasswordField passTxt;
 
-    @FXML
-    private TextField userTxt;
-    @FXML
-    private ImageView enterbtnCREATE;
-
-    @FXML
-    private PasswordField passTxtCREATE;
-
-    @FXML
-    private TextField userTxtCREATE;
 
 /********************************************************************************************************************************/
     /**
@@ -71,6 +57,17 @@ public class LoginController {
     /**
      * Create Account Functions
      */
+    @FXML
+    private TextField userTxt;
+    @FXML
+    private ImageView enterbtnCREATE;
+
+    @FXML
+    private PasswordField passTxtCREATE;
+
+    @FXML
+    private TextField userTxtCREATE;
+
     @FXML
     void enteredCreate(MouseEvent event) {
         String user = userTxtCREATE.getText();
