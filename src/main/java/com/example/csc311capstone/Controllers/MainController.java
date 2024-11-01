@@ -6,11 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class MainController {
-
     @FXML
     private Button budget;
 
@@ -19,6 +19,9 @@ public class MainController {
 
     @FXML
     private Button invest;
+
+    @FXML
+    private Label lblUser;
 
     @FXML
     private Button relocate;
@@ -45,6 +48,9 @@ public class MainController {
     @FXML
     void backToMain(ActionEvent event) { //Every function uses this.
 
+    }
+    public void initialize(String username) {
+        lblUser.setText("Welcome: " + username);
     }
 
     /**
