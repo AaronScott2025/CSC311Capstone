@@ -1,6 +1,8 @@
 package com.example.csc311capstone.Controllers;
 
 import com.example.csc311capstone.Functions.Login;
+import com.example.csc311capstone.Functions.User;
+import com.example.csc311capstone.db.ConnDbOps;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +30,8 @@ public class LoginController {
     private ImageView enterbtn;
     @FXML
     private PasswordField passTxt;
+    private static ConnDbOps cd;
+
 
 
 /********************************************************************************************************************************/
@@ -52,7 +56,8 @@ public class LoginController {
         String pass = passTxt.getText();
         String user = userTxt.getText();
         Login login = new Login(user, pass);
-        login.encryption();
+        String encryption = login.encryption();
+        String dbPass = cd.getUser(user);
         System.out.println(userTxt.getText());
 
     }
@@ -73,8 +78,18 @@ public class LoginController {
 
     @FXML
     void enteredCreate(MouseEvent event) {
+        cd = new ConnDbOps();
         String user = userTxtCREATE.getText();
         String pass = passTxtCREATE.getText();
+        Login login = new Login(user, pass);
+        pass = login.encryption();
+        login.setPassword(pass);
+        User s = new User(0,"",login.getPassword(),login.getUsername());
+        try {
+            cd.registerUser(s);
+        } catch (Exception e) {
+            System.out.println("Unable to register user");
+        }
         System.out.println(userTxtCREATE.getText());
     }
 }

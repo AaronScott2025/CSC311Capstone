@@ -14,12 +14,12 @@ public class ConnDbOps {
     final String DB_URL = "jdbc:mysql://scota311server.mysql.database.azure.com/311db";
     final String USERNAME = "scotadmin";
     final String PASSWORD = "Farmingdale14@";
-    
-    public  boolean connectToDatabase() {
+
+    public boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            Statement statement  = conn.createStatement();
+            Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM users");
             if (resultSet.next()) {
                 int numUsers = resultSet.getInt(1);
@@ -39,7 +39,25 @@ public class ConnDbOps {
     }
 
     public void registerUser(User s) {
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "INSERT INTO users (username, password, location, salary) VALUES (?, ?, ?, ?)";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, s.getUsername());
+            preparedStatement.setString(2, s.getPassword());
+            preparedStatement.setString(3, s.getLocation());
+            preparedStatement.setString(4, Integer.toString(s.getSalary()));
 
+            int row = preparedStatement.executeUpdate();
+
+            if (row > 0) {
+                System.out.println("User registered successfully");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
+
 }
