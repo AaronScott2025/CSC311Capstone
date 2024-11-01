@@ -1,5 +1,6 @@
 package com.example.csc311capstone.App;
 
+import com.example.csc311capstone.db.ConnDbOps;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
@@ -13,6 +14,7 @@ import javafx.util.Duration;
 
 public class Main extends Application {
     private static Stage primaryStage;
+    private static ConnDbOps cdbop;
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -22,7 +24,9 @@ public class Main extends Application {
     }
 
     private void applaunch() {
+        cdbop = new ConnDbOps();
         try {
+            cdbop.connectToDatabase();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/csc311capstone/splash.fxml")); //Get Splash
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
