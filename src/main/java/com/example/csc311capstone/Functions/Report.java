@@ -1,4 +1,4 @@
-package com.example.csc311capstone;
+package com.example.csc311capstone.Functions;
 
 /**
  * Report:

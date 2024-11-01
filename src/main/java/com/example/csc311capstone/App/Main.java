@@ -1,4 +1,4 @@
-package com.example.csc311capstone;
+package com.example.csc311capstone.App;
 
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import java.util.Objects;
 
 public class Main extends Application {
     private static Stage primaryStage;
@@ -32,8 +31,8 @@ public class Main extends Application {
                 Scene newScene = new Scene(newRoot);
                 login.setScene(newScene);
                 login.initStyle(StageStyle.DECORATED);
-                login.show();
                 primaryStage.close();
+                login.show();
             });
             fadeOut.play();
         } catch (Exception e) {
