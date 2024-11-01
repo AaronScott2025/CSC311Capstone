@@ -1,5 +1,6 @@
 package com.example.csc311capstone.Controllers;
 
+import com.example.csc311capstone.Functions.Invest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -71,8 +72,7 @@ public class MainController {
     void showInvestments(ActionEvent event) { //Make new scene with graph, showing data.
         Invest i = new Invest(Integer.getInteger(startingTXT.getText()),Integer.getInteger(yearsTXT.getText()),Integer.getInteger(yearlyTXT.getText()));
         Stage stage = new Stage();
-//        Scene func1Scene = new Scene();
-//        stage.setScene();
+
     }
 
 

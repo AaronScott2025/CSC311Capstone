@@ -4,7 +4,6 @@ module com.example.csc311capstone {
 
 
     opens com.example.csc311capstone to javafx.fxml;
-    exports com.example.csc311capstone;
     exports com.example.csc311capstone.Controllers;
     opens com.example.csc311capstone.Controllers to javafx.fxml;
     exports com.example.csc311capstone.Functions;

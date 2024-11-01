@@ -1,5 +1,6 @@
 package com.example.csc311capstone.Controllers;
 
+import com.example.csc311capstone.Functions.Login;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,6 +51,8 @@ public class LoginController {
     void enteredLogin(MouseEvent event) {
         String pass = passTxt.getText();
         String user = userTxt.getText();
+        Login login = new Login(user, pass);
+        login.encryption();
         System.out.println(userTxt.getText());
 
     }
