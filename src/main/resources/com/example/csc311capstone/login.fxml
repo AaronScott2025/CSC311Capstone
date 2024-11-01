@@ -36,5 +36,10 @@
          </image>
       </ImageView>
       <Rectangle fx:id="rect" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="38.0" layoutX="526.0" layoutY="295.0" onMouseClicked="#enteredLogin" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="43.0" />
+      <Label fx:id="boolbl" alignment="CENTER" layoutX="146.0" layoutY="333.0" prefHeight="83.0" prefWidth="507.0" textFill="RED">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

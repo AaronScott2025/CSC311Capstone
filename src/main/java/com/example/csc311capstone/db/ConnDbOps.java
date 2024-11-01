@@ -60,4 +60,23 @@ public class ConnDbOps {
 
     }
 
+    public User getUser(String username) {
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "SELECT * FROM users WHERE username = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                User s = new User(resultSet.getInt("salary"), resultSet.getString("location"),resultSet.getString("password"),resultSet.getString("username"));
+                return s;
+            } else {
+                User s = new User(0,"","","");
+                return s;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

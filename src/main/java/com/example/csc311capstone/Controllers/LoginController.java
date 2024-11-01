@@ -1,5 +1,6 @@
 package com.example.csc311capstone.Controllers;
 
+import com.example.csc311capstone.App.Main;
 import com.example.csc311capstone.Functions.Login;
 import com.example.csc311capstone.Functions.User;
 import com.example.csc311capstone.db.ConnDbOps;
@@ -18,6 +19,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class LoginController {
 
     @FXML
@@ -31,6 +34,7 @@ public class LoginController {
     @FXML
     private PasswordField passTxt;
     private static ConnDbOps cd;
+    private int x = 3;
 
 
 
@@ -52,14 +56,33 @@ public class LoginController {
     }
 
     @FXML
-    void enteredLogin(MouseEvent event) {
-        String pass = passTxt.getText();
-        String user = userTxt.getText();
-        Login login = new Login(user, pass);
-        String encryption = login.encryption();
-        String dbPass = cd.getUser(user);
-        System.out.println(userTxt.getText());
-
+    void enteredLogin(MouseEvent event) throws IOException {
+        boolbl.setText("");
+        cd = new ConnDbOps(); //New DB connection
+        String pass = passTxt.getText(); //Password
+        String user = userTxt.getText(); //Username
+        Login login = new Login(user, pass); //Login Class entered in
+        String encryption = login.encryption(); //Login encryption
+        User u = cd.getUser(user); //Get Username from SQL Query
+        if(u.getUsername().isEmpty() || !u.getPassword().equals(encryption)) { //Fails if user not found, or password !=
+            System.out.println(u.getUsername()); //Testing Statement
+            x--;
+            boolbl.setText("Login Failed: Username or Password is incorrect");
+            boolbl.setVisible(true);
+            if(x == 0) {
+                System.exit(0);
+            }
+        } else {
+            System.out.println("User Accepted, Welcome!");
+            Stage stage = Main.getPrimaryStage();
+            FXMLLoader f = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/MainInterface.fxml"));
+            Scene s = new Scene(f.load());
+            stage.setScene(s);
+            stage.setTitle("Future Link");
+            MainController mc = f.getController();
+            mc.initialize(user);
+            stage.show();
+        }
     }
 /********************************************************************************************************************************/
     /**
