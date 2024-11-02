@@ -35,7 +35,6 @@ public class LoginController {
     private PasswordField passTxt;
     private static ConnDbOps cd;
     private int x = 3;
-    private Stage stage = Main.getPrimaryStage();
 
 
 
@@ -75,14 +74,17 @@ public class LoginController {
             }
         } else {
             System.out.println("User Accepted, Welcome!");
-            Stage stage = Main.getPrimaryStage();
             FXMLLoader f = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/MainInterface.fxml"));
             Scene s = new Scene(f.load());
+            Stage stage = new Stage();
             stage.setScene(s);
             stage.setTitle("Future Link");
             MainController mc = f.getController();
+            mc.deleteChart();
             mc.initialize(user);
             stage.show();
+            Stage temp = (Stage) passTxt.getScene().getWindow();
+            temp.close();
         }
     }
 /********************************************************************************************************************************/
@@ -115,8 +117,5 @@ public class LoginController {
             System.out.println("Unable to register user");
         }
         System.out.println(userTxtCREATE.getText());
-    }
-    public Stage getStage() {
-        return stage;
     }
 }

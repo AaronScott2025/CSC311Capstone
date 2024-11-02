@@ -46,7 +46,7 @@ public class Invest {
     public double[] eightPercent() { //S&P500
         double[] compound = new double[years];
         double temp = initial;
-        for(int i = 1; i <= years; i++) {
+        for(int i = 0; i < years; i++) {
             temp = yearlyInvestment + (temp*1.08);
             compound[i] = temp;
         }
@@ -55,7 +55,7 @@ public class Invest {
     public double[] fivePercent() { //High yield savings account
         double[] compound = new double[years];
         double temp = initial;
-        for(int i = 1; i <= years; i++) {
+        for(int i = 0; i < years; i++) {
             temp = yearlyInvestment + (temp*1.05);
             compound[i] = temp;
         }
@@ -64,7 +64,7 @@ public class Invest {
     public double[] threePercent() { //Bonds
         double[] compound = new double[years];
         double temp = initial;
-        for(int i = 1; i <= years; i++) {
+        for(int i = 0; i < years; i++) {
             temp = yearlyInvestment + (temp*1.03);
             compound[i] = temp;
         }

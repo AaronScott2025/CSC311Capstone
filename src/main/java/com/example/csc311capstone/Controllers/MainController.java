@@ -1,6 +1,5 @@
 package com.example.csc311capstone.Controllers;
 
-import com.example.csc311capstone.App.Main;
 import com.example.csc311capstone.Functions.Invest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,9 +19,14 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.File;
 
+/**
+ * REFERENCES:
+ *
+ */
 
 public class MainController {
     @FXML
@@ -35,10 +40,12 @@ public class MainController {
 
     @FXML
     private Label lblUser;
+    @FXML
+    private MenuItem shutDown;
 
     @FXML
     private Button relocate;
-    private static Stage current = Main.getPrimaryStage();
+    private static Stage current;
     private static Stage substage = new Stage();
 
     @FXML
@@ -53,6 +60,7 @@ public class MainController {
 
     @FXML
     void investPress(ActionEvent event) throws IOException {
+        current = (Stage) invest.getScene().getWindow();
         current.hide();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/Invest.fxml"));
         Parent root = loader.load();
@@ -76,25 +84,6 @@ public class MainController {
      * ========================================================================================================================================================== *
      */
     /**
-     * InvestmentsResults.fxml
-     */
-    @FXML
-    private ImageView chartView;
-
-    @FXML
-    private Button exitBTNResult;
-
-    @FXML
-    private Button restartBTN;
-
-    @FXML
-    void backInvestments(ActionEvent event) throws IOException {
-        deleteChart();
-        FXMLLoader fx = new FXMLLoader(getClass().getResource("Invest.fxml"));
-        Scene s = new Scene(fx.load());
-        substage.setScene(s);
-    }
-    /**
      * Invest.fxml:
      */
     @FXML
@@ -116,12 +105,18 @@ public class MainController {
 
     @FXML
     void showInvestments(ActionEvent event) throws IOException { //Make new scene with graph, showing data.
-        Invest i = new Invest(Integer.getInteger(startingTXT.getText()),Integer.getInteger(yearsTXT.getText()),Integer.getInteger(yearlyTXT.getText()));
-        makeChart(i);
-        FXMLLoader fx = new FXMLLoader(getClass().getResource("com/example/csc311capstone/InvestmentsResults.fxml"));
+        Invest i = new Invest(Integer.parseInt(startingTXT.getText()),Integer.parseInt(yearsTXT.getText()),Integer.parseInt(yearlyTXT.getText()));
+        makeChart(i); //Makes the png for the chart using API
+
+        FXMLLoader fx = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/InvestmentsResults.fxml"));
         Parent root = fx.load();
-        Image image = new Image("chart.png");
-        chartView.setImage(image);
+
+        MainController c = fx.getController();
+        Path chartpath = Paths.get("chart.png").toAbsolutePath();
+        Image image = new Image(chartpath.toUri().toString());
+
+        c.chartView.setImage(image);
+
         Scene s = new Scene(root);
         substage.setScene(s);
         substage.show();
@@ -139,12 +134,12 @@ public class MainController {
         SP.append("[");
         HYSA.append("[");
         Bond.append("[");
-        for(int i = 0; i <= in.getYears();i++) {
+        for(int i = 0; i < in.getYears();i++) {
             data.append("'" + i + "'");
-            SP.append(",'" + SP_double[i] + "'");
-            HYSA.append(",'" + HYSA_double[i] + "'");
-            Bond.append(",'" + Bond_double[i] + "'");
-            if(i + 1 <= in.getYears()) {
+            SP.append(SP_double[i]);
+            HYSA.append(HYSA_double[i]);
+            Bond.append(Bond_double[i]);
+            if(i + 1 < in.getYears()) {
                 data.append(", ");
                 SP.append(", ");
                 HYSA.append(", ");
@@ -155,6 +150,10 @@ public class MainController {
         SP.append("]");
         HYSA.append("]");
         Bond.append("]");
+//        System.out.println(data.toString());
+//        System.out.println(SP.toString());
+//        System.out.println(HYSA.toString());
+//        System.out.println(Bond.toString());
         String chartConfig = "{"
                 + "  type: 'line',"
                 + "  data: {"
@@ -193,6 +192,25 @@ public class MainController {
         System.out.println("Chart image saved as chart.png");
     }
     /**
+     * InvestmentsResults.fxml
+     */
+    @FXML
+    private ImageView chartView;
+
+    @FXML
+    private Button exitBTNResult;
+
+    @FXML
+    private Button restartBTN;
+
+    @FXML
+    void backInvestments(ActionEvent event) throws IOException {
+        deleteChart();
+        FXMLLoader fx = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/Invest.fxml"));
+        Scene s = new Scene(fx.load());
+        substage.setScene(s);
+    }
+    /**
      * GLOBAL FUNCTIONS
      */
     @FXML
@@ -208,6 +226,9 @@ public class MainController {
         } else {
             System.out.println("Chart not deleted");
         }
+    }
+    public void shutdownapp(ActionEvent event) {
+        System.exit(0);
     }
 
 
