@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -15,15 +17,39 @@
    <children>
       <ImageView fitHeight="559.0" fitWidth="950.0">
          <image>
-            <Image url="@../../../background.jpg" />
+            <Image url="@../../../pastelground.png" />
          </image>
       </ImageView>
-      <Button fx:id="budget" layoutX="500.0" layoutY="360.0" mnemonicParsing="false" onAction="#budgetPress" prefHeight="58.0" prefWidth="160.0" text="Budgeting" />
-      <Button fx:id="invest" layoutX="725.0" layoutY="360.0" mnemonicParsing="false" onAction="#investPress" prefHeight="58.0" prefWidth="160.0" text="Investments" />
-      <Button fx:id="career" layoutX="275.0" layoutY="360.0" mnemonicParsing="false" onAction="#careerPress" prefHeight="58.0" prefWidth="160.0" text="Career/Education" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9b9b9" height="115.0" layoutX="-17.0" layoutY="444.0" stroke="BLACK" strokeType="INSIDE" width="969.0" />
-      <MenuBar prefHeight="28.0" prefWidth="950.0">
+      <ImageView fitHeight="224.0" fitWidth="243.0" layoutX="18.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../FutureLinkTEMP.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="budget" layoutX="500.0" layoutY="360.0" mnemonicParsing="false" onAction="#budgetPress" prefHeight="58.0" prefWidth="160.0" style="-fx-background-color: #BAFFBB;" text="Budgeting">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="invest" layoutX="725.0" layoutY="360.0" mnemonicParsing="false" onAction="#investPress" prefHeight="58.0" prefWidth="160.0" style="-fx-background-color: #BAD7FF;" text="Investments">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="career" layoutX="275.0" layoutY="360.0" mnemonicParsing="false" onAction="#careerPress" prefHeight="58.0" prefWidth="160.0" style="-fx-background-color: #FFF4BA;" text="Career/Education">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" blendMode="OVERLAY" fill="#c9e1ff" height="115.0" layoutX="-17.0" layoutY="444.0" stroke="TRANSPARENT" strokeType="INSIDE" width="969.0">
+         <effect>
+            <Blend />
+         </effect></Rectangle>
+      <MenuBar blendMode="COLOR_DODGE" prefHeight="28.0" prefWidth="950.0" scaleShape="false">
         <menus>
+            <Menu mnemonicParsing="false" text="Profile">
+               <items>
+                  <MenuItem fx:id="profileInfo" mnemonicParsing="false" onAction="#viewInfo" text="Info" />
+                  <MenuItem fx:id="profileSalary" mnemonicParsing="false" onAction="#updateSalary" text="Change Salary" />
+                  <MenuItem fx:id="setLocation" mnemonicParsing="false" onAction="#updateLocation" text="Set Location" />
+               </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="System">
             <items>
               <MenuItem fx:id="shutDown" mnemonicParsing="false" onAction="#shutdownapp" text="Exit" />
@@ -31,17 +57,15 @@
           </Menu>
           <Menu mnemonicParsing="false" text="FAQ">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Settings">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="About Us" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="relocate" layoutX="50.0" layoutY="360.0" mnemonicParsing="false" onAction="#relocatePressed" prefHeight="58.0" prefWidth="160.0" text="Relocation" />
+      <Button fx:id="relocate" layoutX="50.0" layoutY="360.0" mnemonicParsing="false" onAction="#relocatePressed" prefHeight="58.0" prefWidth="160.0" style="-fx-background-color: #FFD2BA;" text="Relocation">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Label fx:id="lblUser" alignment="CENTER" layoutX="-6.0" layoutY="437.0" prefHeight="129.0" prefWidth="959.0" text="Welcome: Username!" textAlignment="CENTER">
          <font>
             <Font size="47.0" />

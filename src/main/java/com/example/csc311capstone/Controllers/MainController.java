@@ -25,7 +25,7 @@ import java.io.File;
 
 /**
  * REFERENCES:
- *
+ * https://quickchart.io  | Chart maker for Function 1
  */
 
 public class MainController {
@@ -232,4 +232,12 @@ public class MainController {
     }
 
 
+    public void viewInfo(ActionEvent actionEvent) {
+    }
+
+    public void updateSalary(ActionEvent actionEvent) {
+    }
+
+    public void updateLocation(ActionEvent actionEvent) {
+    }
 }
