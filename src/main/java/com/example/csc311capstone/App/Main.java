@@ -55,7 +55,6 @@ public class Main extends Application {
                     primaryStage.close(); //Close splash
                     login.show(); //Open Login
                     reversereverse.play(); //Play transition after cha cha
-                    primaryStage = login; //primary = to login (for later)
                 });
             chacha.play(); //Play transition after pause
             });
@@ -63,9 +62,5 @@ public class Main extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static Stage getPrimaryStage() { //Returns the primary stage
-        return primaryStage;
     }
 }

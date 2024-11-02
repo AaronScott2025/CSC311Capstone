@@ -67,21 +67,24 @@ public class LoginController {
         if(u.getUsername().isEmpty() || !u.getPassword().equals(encryption)) { //Fails if user not found, or password !=
             System.out.println(u.getUsername()); //Testing Statement
             x--;
-            boolbl.setText("Login Failed: Username or Password is incorrect");
+            boolbl.setText("Login Failed: Username or Password is incorrect  (" + x + ")");
             boolbl.setVisible(true);
             if(x == 0) {
                 System.exit(0);
             }
         } else {
             System.out.println("User Accepted, Welcome!");
-            Stage stage = Main.getPrimaryStage();
             FXMLLoader f = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/MainInterface.fxml"));
             Scene s = new Scene(f.load());
+            Stage stage = new Stage();
             stage.setScene(s);
             stage.setTitle("Future Link");
             MainController mc = f.getController();
+            mc.deleteChart();
             mc.initialize(user);
             stage.show();
+            Stage temp = (Stage) passTxt.getScene().getWindow();
+            temp.close();
         }
     }
 /********************************************************************************************************************************/
