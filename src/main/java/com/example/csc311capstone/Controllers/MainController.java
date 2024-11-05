@@ -1,5 +1,6 @@
 package com.example.csc311capstone.Controllers;
 
+import com.example.csc311capstone.Functions.Budgeting;
 import com.example.csc311capstone.Functions.Invest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +15,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -211,6 +214,38 @@ public class MainController {
         substage.setScene(s);
     }
     /**
+     * Function 4
+     */
+    private void makeChartBudget(Budgeting b) throws IOException {
+        String chartConfig = "{"
+                + "type: 'pie', "
+                + "data: {"
+                + "datasets: [{"
+                + "data: [84, 28, 57, 19, 97], "
+                + "backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)'], "
+                + "label: 'Dataset 1'"
+                + "}], "
+                + "labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue']"
+                + "}"
+                + "}";
+        //DOCUMENTATION PARAMETERS
+
+        String encodedChartConfig = URLEncoder.encode(chartConfig, StandardCharsets.UTF_8.toString());
+
+        String chartUrl = "https://quickchart.io/chart?c=" + encodedChartConfig;
+
+        URL url = new URL(chartUrl);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+
+        Files.copy(connection.getInputStream(), Paths.get("chart.png"));
+        connection.disconnect();
+    }
+
+
+
+
+    /**
      * GLOBAL FUNCTIONS
      */
     @FXML
@@ -240,4 +275,7 @@ public class MainController {
 
     public void updateLocation(ActionEvent actionEvent) {
     }
+
+
+    
 }
