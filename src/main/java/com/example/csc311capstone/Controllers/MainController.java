@@ -106,7 +106,7 @@ public class MainController {
     @FXML
     void showInvestments(ActionEvent event) throws IOException { //Make new scene with graph, showing data.
         Invest i = new Invest(Integer.parseInt(startingTXT.getText()),Integer.parseInt(yearsTXT.getText()),Integer.parseInt(yearlyTXT.getText()));
-        makeChart(i); //Makes the png for the chart using API
+        makeChartInvest(i); //Makes the png for the chart using API
 
         FXMLLoader fx = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/InvestmentsResults.fxml"));
         Parent root = fx.load();
@@ -122,7 +122,7 @@ public class MainController {
         substage.show();
 
     }
-    private void makeChart(Invest in) throws IOException {
+    private void makeChartInvest(Invest in) throws IOException {
         StringBuilder data = new StringBuilder();
         StringBuilder SP = new StringBuilder();
         StringBuilder HYSA = new StringBuilder();
