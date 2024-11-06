@@ -1,5 +1,6 @@
 package com.example.csc311capstone.Controllers;
 
+import com.example.csc311capstone.Functions.Budgeting;
 import com.example.csc311capstone.Functions.Invest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -48,10 +52,6 @@ public class MainController {
     private static Stage current;
     private static Stage substage = new Stage();
 
-    @FXML
-    void budgetPress(ActionEvent event) {
-
-    }
 
     @FXML
     void careerPress(ActionEvent event) {
@@ -209,6 +209,77 @@ public class MainController {
         FXMLLoader fx = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/Invest.fxml"));
         Scene s = new Scene(fx.load());
         substage.setScene(s);
+    }
+
+    /**
+     *Function 4
+     **/
+    @FXML
+    private ImageView chartViewBudgetting;
+    @FXML
+    void budgetPress(ActionEvent event) throws IOException {
+        current = (Stage) budget.getScene().getWindow();
+        current.hide();
+        Budgeting b = new Budgeting(100000, "New York");
+        makeChartBudget(b); //Makes the png for the chart using API
+
+        FXMLLoader fx = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/Budgetting.fxml"));
+        Parent root = fx.load();
+
+        MainController c = fx.getController();
+        Path chartpath = Paths.get("chart.png").toAbsolutePath();
+        Image image = new Image(chartpath.toUri().toString());
+
+        c.chartViewBudgetting.setImage(image);
+
+        Scene s = new Scene(root);
+        substage.setScene(s);
+        substage.show();
+    }
+
+    private void makeChartBudget(Budgeting b) throws IOException {
+        StringBuilder params = new StringBuilder();
+        File f = new File("BudgetingData.csv");
+
+        BufferedReader br = new BufferedReader(new FileReader(f.getAbsolutePath()));
+        String string;
+        String[] location = new String[5];
+        while((string = br.readLine()) != null) {
+            if(string.contains(b.getLocation())) {
+                location = string.split(",");
+                break;
+            }
+        }
+        br.close();
+        params.append("[");
+        params.append(b.gasLimit(Double.parseDouble(location[2]))+",");
+        params.append(b.Extras(Double.parseDouble(location[4]))+",");
+        params.append(b.groceryLimit(Double.parseDouble(location[1]))+",");
+        params.append(b.investLimit(15.0)+",");
+        params.append("]");
+        String chartConfig = "{"
+                + "type: 'pie', "
+                + "data: {"
+                + "datasets: [{"
+                + "data:" + params + ","
+                + "backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)'], "
+                + "label: 'Dataset 1'"
+                + "}], "
+                + "labels: ['Gas', 'Extras', 'Groceries', 'Investments']"
+                + "}"
+                + "}";
+        //DOCUMENTATION PARAMETERS
+
+        String encodedChartConfig = URLEncoder.encode(chartConfig, StandardCharsets.UTF_8.toString());
+
+        String chartUrl = "https://quickchart.io/chart?c=" + encodedChartConfig;
+
+        URL url = new URL(chartUrl);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+
+        Files.copy(connection.getInputStream(), Paths.get("chart.png"));
+        connection.disconnect();
     }
     /**
      * GLOBAL FUNCTIONS
