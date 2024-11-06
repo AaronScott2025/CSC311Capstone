@@ -14,8 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -24,7 +24,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.io.File;
+import java.util.ArrayList;
 
 /**
  * REFERENCES:
@@ -52,7 +52,9 @@ public class MainController {
     private static Stage substage = new Stage();
 
     @FXML
-    void budgetPress(ActionEvent event) {
+    void budgetPress(ActionEvent event) throws IOException {
+        Budgeting b = new Budgeting(50000, "New York");
+        makeChartBudget(b);
 
     }
 
@@ -217,11 +219,34 @@ public class MainController {
      * Function 4
      */
     private void makeChartBudget(Budgeting b) throws IOException {
+        StringBuilder params = new StringBuilder();
+        BufferedReader br = new BufferedReader(new FileReader("BudgetingData.csv"));
+        String string;
+        ArrayList<String> locationArray = new ArrayList<>();
+        String[] location;
+        while((string = br.readLine()) != null){
+            string = br.readLine();
+            if (string.equals(b.getLocation())){
+                location = string.split(",");
+                for(String s : location){
+                    locationArray.add(s);
+                }
+              break;
+            }
+        }
+        br.close();
+        String[] l = (String[]) locationArray.toArray();
+        params.append("[");
+        params.append(b.gasLimit(Integer.parseInt(l[2]))+",");
+        params.append(b.Extras(Integer.parseInt(l[4]))+",");
+        params.append(b.groceryLimit(Integer.parseInt(l[1]))+",");
+        params.append(b.investLimit(15)+",");
+        params.append("]");
         String chartConfig = "{"
                 + "type: 'pie', "
                 + "data: {"
                 + "datasets: [{"
-                + "data: [84, 28, 57, 19, 97], "
+                + "data:" + params + ","
                 + "backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)'], "
                 + "label: 'Dataset 1'"
                 + "}], "

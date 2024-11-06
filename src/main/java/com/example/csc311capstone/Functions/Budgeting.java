@@ -10,12 +10,10 @@ package com.example.csc311capstone.Functions;
 public class Budgeting {
 
     private int salary;
-    private int householdSize;
     private String Location;
 
-    public Budgeting(int salary, int householdSize, String location) {
+    public Budgeting(int salary, String location) {
         this.salary = salary;
-        this.householdSize = householdSize;
         Location = location;
     }
 
@@ -27,14 +25,6 @@ public class Budgeting {
         this.salary = salary;
     }
 
-    public int getHouseholdSize() {
-        return householdSize;
-    }
-
-    public void setHouseholdSize(int householdSize) {
-        this.householdSize = householdSize;
-    }
-
     public String getLocation() {
         return Location;
     }
@@ -44,21 +34,21 @@ public class Budgeting {
     }
 
 
-    public int investLimit(){
-
-
-    }
-
-    public int groceryLimit(){
-    //12.8 in ny
+    public double investLimit(int percentage){
+        return salary * percentage;
 
     }
 
-    public int gasLimit(){
+    public double groceryLimit(int percentage){
+        return salary * percentage;
 
     }
 
-    public int Extras(){
+    public double gasLimit(int percentage){
+        return salary * percentage;
+    }
 
+    public double Extras(int percentage){
+        return salary * percentage;
     }
 }
