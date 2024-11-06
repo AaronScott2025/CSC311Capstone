@@ -7,5 +7,6 @@ package com.example.csc311capstone.Functions;
  * be a little more exposed, so that a user can plan accordingly.
  */
 
-public class Locations {
+public interface Locations {
+    public String[] knn();
 }
