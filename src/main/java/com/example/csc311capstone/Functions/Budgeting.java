@@ -34,21 +34,21 @@ public class Budgeting {
     }
 
 
-    public double investLimit(int percentage){
-        return salary * percentage;
+    public double investLimit(double percentage){
+        return Math.round(salary * (percentage / 100)) ;
 
     }
 
-    public double groceryLimit(int percentage){
-        return salary * percentage;
+    public double groceryLimit(double percentage){
+        return Math.round(salary * (percentage / 100)) ;
 
     }
 
-    public double gasLimit(int percentage){
-        return salary * percentage;
+    public double gasLimit(double percentage){
+        return Math.round(salary * (percentage / 100)) ;
     }
 
-    public double Extras(int percentage){
-        return salary * percentage;
+    public double Extras(double percentage){
+        return Math.round(salary * (percentage / 100)) ;
     }
 }

@@ -16,8 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -220,27 +220,23 @@ public class MainController {
      */
     private void makeChartBudget(Budgeting b) throws IOException {
         StringBuilder params = new StringBuilder();
-        BufferedReader br = new BufferedReader(new FileReader("BudgetingData.csv"));
+        File f = new File("BudgetingData.csv");
+
+        BufferedReader br = new BufferedReader(new FileReader(f.getAbsolutePath()));
         String string;
-        ArrayList<String> locationArray = new ArrayList<>();
-        String[] location;
-        while((string = br.readLine()) != null){
-            string = br.readLine();
-            if (string.equals(b.getLocation())){
+        String[] location = new String[5];
+        while((string = br.readLine()) != null) {
+            if(string.contains(b.getLocation())) {
                 location = string.split(",");
-                for(String s : location){
-                    locationArray.add(s);
-                }
-              break;
+                break;
             }
         }
         br.close();
-        String[] l = (String[]) locationArray.toArray();
         params.append("[");
-        params.append(b.gasLimit(Integer.parseInt(l[2]))+",");
-        params.append(b.Extras(Integer.parseInt(l[4]))+",");
-        params.append(b.groceryLimit(Integer.parseInt(l[1]))+",");
-        params.append(b.investLimit(15)+",");
+        params.append(b.gasLimit(Double.parseDouble(location[2]))+",");
+        params.append(b.Extras(Double.parseDouble(location[4]))+",");
+        params.append(b.groceryLimit(Double.parseDouble(location[1]))+",");
+        params.append(b.investLimit(15.0)+",");
         params.append("]");
         String chartConfig = "{"
                 + "type: 'pie', "
@@ -250,7 +246,7 @@ public class MainController {
                 + "backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)'], "
                 + "label: 'Dataset 1'"
                 + "}], "
-                + "labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue']"
+                + "labels: ['Gas', 'Extras', 'Groceries', 'Investments']"
                 + "}"
                 + "}";
         //DOCUMENTATION PARAMETERS
