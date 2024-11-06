@@ -1,6 +1,5 @@
 package com.example.csc311capstone.Controllers;
 
-import com.example.csc311capstone.Functions.Budgeting;
 import com.example.csc311capstone.Functions.Invest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,17 +13,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
-import java.io.*;
+import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.io.File;
 
 /**
  * REFERENCES:
@@ -52,9 +49,7 @@ public class MainController {
     private static Stage substage = new Stage();
 
     @FXML
-    void budgetPress(ActionEvent event) throws IOException {
-        Budgeting b = new Budgeting(50000, "New York");
-        makeChartBudget(b);
+    void budgetPress(ActionEvent event) {
 
     }
 
@@ -216,61 +211,6 @@ public class MainController {
         substage.setScene(s);
     }
     /**
-     * Function 4
-     */
-    private void makeChartBudget(Budgeting b) throws IOException {
-        StringBuilder params = new StringBuilder();
-        BufferedReader br = new BufferedReader(new FileReader("BudgetingData.csv"));
-        String string;
-        ArrayList<String> locationArray = new ArrayList<>();
-        String[] location;
-        while((string = br.readLine()) != null){
-            string = br.readLine();
-            if (string.equals(b.getLocation())){
-                location = string.split(",");
-                for(String s : location){
-                    locationArray.add(s);
-                }
-              break;
-            }
-        }
-        br.close();
-        String[] l = (String[]) locationArray.toArray();
-        params.append("[");
-        params.append(b.gasLimit(Integer.parseInt(l[2]))+",");
-        params.append(b.Extras(Integer.parseInt(l[4]))+",");
-        params.append(b.groceryLimit(Integer.parseInt(l[1]))+",");
-        params.append(b.investLimit(15)+",");
-        params.append("]");
-        String chartConfig = "{"
-                + "type: 'pie', "
-                + "data: {"
-                + "datasets: [{"
-                + "data:" + params + ","
-                + "backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)'], "
-                + "label: 'Dataset 1'"
-                + "}], "
-                + "labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue']"
-                + "}"
-                + "}";
-        //DOCUMENTATION PARAMETERS
-
-        String encodedChartConfig = URLEncoder.encode(chartConfig, StandardCharsets.UTF_8.toString());
-
-        String chartUrl = "https://quickchart.io/chart?c=" + encodedChartConfig;
-
-        URL url = new URL(chartUrl);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-
-        Files.copy(connection.getInputStream(), Paths.get("chart.png"));
-        connection.disconnect();
-    }
-
-
-
-
-    /**
      * GLOBAL FUNCTIONS
      */
     @FXML
@@ -300,7 +240,4 @@ public class MainController {
 
     public void updateLocation(ActionEvent actionEvent) {
     }
-
-
-    
 }
