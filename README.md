@@ -1,5 +1,5 @@
-**Welcome to ‘Future Link’
-**
+**Welcome to ‘Future Link’**
+
 **What is Future Link?**
 
 Future link is a desktop application that seeks to connect users with the all-too-unknown future, providing guidance for decisions that many people find to be overwhelming
