@@ -12,7 +12,7 @@ package com.example.csc311capstone.Functions;
  *   in a new field.
  *
  * @version 1.0
- * @since 2023-11-11
+ * @since 11/12/2024
  * @author Benjamin Siegel
  */
 public class EducationAndCareer {
