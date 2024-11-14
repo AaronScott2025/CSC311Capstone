@@ -56,7 +56,7 @@ public class Main extends Application {
                     login.show(); //Open Login
                     reversereverse.play(); //Play transition after cha cha
                 });
-            chacha.play(); //Play transition after pause
+                chacha.play(); //Play transition after pause
             });
             pause.play(); //play the pause (ironic)
         } catch (Exception e) {
