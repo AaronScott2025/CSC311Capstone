@@ -54,9 +54,22 @@ public class MainController {
 
 
     @FXML
-    void careerPress(ActionEvent event) {
+    void careerPress(ActionEvent event) throws IOException {
+        current = (Stage) career.getScene().getWindow();
+        current.hide();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/ChatWindow.fxml"));
+        Parent root = loader.load();
+        Scene s = new Scene(root);
+        substage.setScene(s);
+        substage.setTitle("Chat Window");
 
+        // Set an event handler to show the main stage when the chat window is closed
+        substage.setOnHidden(e -> current.show());
+
+        substage.show();
     }
+
+
 
     @FXML
     void investPress(ActionEvent event) throws IOException {

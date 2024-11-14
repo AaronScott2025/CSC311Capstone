@@ -1,4 +1,4 @@
-package com.example.csc311capstone.App;
+/*package com.example.csc311capstone.App;
 
 import com.google.cloud.vertexai.VertexAI;
 import com.google.cloud.vertexai.api.GenerateContentResponse;
@@ -264,3 +264,4 @@ public class GeminiTest {
         return lines;
     }
 }
+*/
