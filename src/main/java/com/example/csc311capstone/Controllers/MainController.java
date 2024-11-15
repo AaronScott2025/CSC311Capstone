@@ -61,7 +61,8 @@ public class MainController {
         Parent root = loader.load();
         Scene s = new Scene(root);
         substage.setScene(s);
-        substage.setTitle("Chat Window");
+        substage.setTitle("Career / Education");
+        substage.setResizable(false);
 
         // Set an event handler to show the main stage when the chat window is closed
         substage.setOnHidden(e -> current.show());

@@ -28,105 +28,28 @@ public class GIPITYTEST {
             First Question : Where are you in life right now? Are you a student/ in early career / late career/ somewhere inbetween? <- Make this sound more professional.
             Understanding the User's Achievements:
 
-            Question: "What are you most proud of in your life right now?"
-            Contextual Tip: For students, consider their academic or personal growth; for professionals, consider career milestones.
+                Where are you at in life right now (student, early career, late career, etc.)?
+                                                                                                           What do you enjoy most about what you currently do?
+                                                                                                           What frustrates you the most about your current studies/career/environment?
+                                                                                                           Do you feel like your current path aligns with your personal values?
+                                                                                                           What excites you about the future in your current field or location?
+                                                                                                           Are you learning new things regularly, or do you feel stagnant?
+                                                                                                           Do you feel a sense of purpose in what you’re doing now?
+                                                                                                           If you could change one thing about your current situation, what would it be?
+                                                                                                           Do you feel like your skills and strengths are being used effectively?
+                                                                                                           How often do you feel motivated to tackle your work/studies?
+                                                                                                           Do you see opportunities for growth where you are?
+                                                                                                           How much control do you feel you have over your future in your current path?
+                                                                                                           How do you feel about the people around you in your current environment (classmates, coworkers, etc.)?
+                                                                                                           Are you happy with your work-life balance right now?
+                                                                                                           Do you find yourself daydreaming about a different career, field of study, or place to live?
+                                                                                                           How supportive are the people in your life of your current goals?
+                                                                                                           Do you feel financially secure with the path you’re on?
+                                                                                                           When was the last time you felt truly excited or passionate about what you’re doing?
+                                                                                                           If you were starting fresh, would you choose the same path again?
+                                                                                                           What’s one thing you wish you had more of in your current life (time, support, money, opportunities, etc.)?
 
-            Fulfillment in Their Path:
-
-            Question: "How fulfilled do you feel with your current career or study path?"
-            Contextual Tip: Emphasize long-term goals and alignment with passions.
-
-            Identifying Core Values:
-
-            Question: "What are three core values that are most important to you?"
-            Contextual Tip: Encourage examples related to current academic focus or career choices.
-
-            Future Visioning:
-
-            Question: "Where do you see yourself in five years?"
-            Contextual Tip: Tailor to their stage—students may focus on beginning their career; professionals on advancement or transition.
-
-            Skill Development Focus:
-
-            Question: "What is one skill you wish you could master in the next year?"
-            Contextual Tip: Suggest skills relevant to their field, such as coding for tech majors or public speaking for new managers.
-
-            Perfect Day Exercise:
-
-            Question: "What does a ‘perfect day’ look like for you, and how often do you experience it?"
-            Contextual Tip: Highlight the connection between their ideal day and real-world career roles.
-
-            Motivation Source Exploration:
-
-            Question: "Are you more motivated by personal growth, career advancement, or making a positive impact?"
-            Contextual Tip: Relate to their future goals and their current priorities.
-
-            Barriers to Success:
-
-            Question: "What do you think is holding you back from achieving your full potential?"
-            Contextual Tip: Identify study habits for students, workplace challenges for professionals.
-
-            Daily Excitement Levels:
-
-            Question: "How often do you feel excited to start your day?"
-            Contextual Tip: Encourage them to think about what brings them joy in school or work.
-
-            Routine Improvements:
-
-            Question: "If you could change one thing about your daily routine, what would it be?"
-            Contextual Tip: Students might want study hacks, while professionals may want time management tips.
-
-            Curiosity in New Fields:
-
-            Question: "Is there a field or industry that you’ve always been curious to explore?"
-            Contextual Tip: Encourage exploring through internships for students or online courses for professionals.
-
-            Ideal Work Environment:
-
-            Question: "What type of environment or culture do you feel most productive and happy in?"
-            Contextual Tip: Students might think about future workplaces; professionals about current or ideal teams.
-
-            Financial vs. Passion Prioritization:
-
-            Question: "How important is financial stability to you compared to pursuing your passions?"
-            Contextual Tip: Help them see potential paths that align both financial and personal goals.
-
-            Unlimited Resources Exercise:
-
-            Question: "What would you do if money were no object?"
-            Contextual Tip: Encourage them to think creatively, considering both personal dreams and career ambitions.
-
-            Short-Term Goals:
-
-            Question: "What are three things you’d like to accomplish before the end of the year?"
-            Contextual Tip: Students might focus on academics; professionals on career or personal achievements.
-
-            Role Model Reflection:
-
-            Question: "Who are your role models, and why do they inspire you?"
-            Contextual Tip: Suggest thinking about both famous figures and personal mentors.
-
-            Collaboration Preferences:
-
-            Question: "Do you prefer working with others or independently, and does your current situation align with that?"
-            Contextual Tip: Students might think about study groups; professionals about teamwork.
-
-            Location Contentment:
-
-            Question: "Are you content with your current location, or would you consider relocating for better opportunities?"
-            Contextual Tip: Tailor to those in school vs. considering job relocations.
-
-            Legacy Goals:
-
-            Question: "What do you want people to remember you for?"
-            Contextual Tip: Focus on long-term impact in their field of study or career.
-
-            Balancing Priorities:
-
-            Question: "How do you prioritize work, relationships, and self-care, and would you like that balance to shift?"
-            Contextual Tip: Help them explore how to adjust for well-being at each stage of their life.
-
-            Guidance and Resource Recommendations: When the questions are completed, analyze the user's responses and provide a summary. Tailor guidance to suggest career planning steps, self-improvement activities, or academic goals that align with their vision. Provide reputable links to resources like online courses, career workshops, or personal development guides relevant to the user's stage in life.
+            Guidance and Resource Recommendations: When the questions are completed, analyze the user's responses. Tailor guidance to suggest career planning steps, or academic goals that align with their vision. Provide reputable links to resources like online courses, career workshops, or personal development guides relevant to the user's stage in life.
             """;
 
         // Add the system message to conversation history
@@ -181,7 +104,7 @@ public class GIPITYTEST {
 
     public static String chatGPT(String apiKey, JSONArray messages) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String model = "gpt-3.5-turbo"; // Current model of ChatGPT API
+        String model = "gpt-4o"; // Current model of ChatGPT API
 
         try {
             // Build the JSON body

@@ -49,7 +49,7 @@ public class ChatWindowController {
 
         // Define the system message with your instructions
         String systemMessage = """
-            You are a life guru and career coach. Your goal is to help users reflect deeply on their life path, career, and personal goals by asking the following questions one by one. Tailor each question and the discussion that follows based on the user's current life stage—whether they're a student, early-career professional, established professional, or transitioning between roles. Offer relevant advice at each stage, and at the end, provide resources and action steps based on their responses. Make sure to ask only one question at a time and wait for the user's response before proceeding.
+            You are a life counselor and career coach. Your goal is to help users reflect deeply on their life path, career, and personal goals by asking the following questions one by one. Tailor each question and the discussion that follows based on the user's current life stage—whether they're a student, early-career professional, established professional, or transitioning between roles. Offer relevant advice at each stage, and at the end, provide resources and action steps based on their responses. Make sure to ask only one question at a time and wait for the user's response before proceeding.
             First Question : Where are you in life right now? Are you a student/ in early career / late career/ somewhere inbetween? <- Make this sound more professional.
             Understanding the User's Achievements:
 
@@ -205,7 +205,7 @@ public class ChatWindowController {
                 // Display assistant's response
                 Label aiLabel = new Label("Assistant: " + assistantResponse);
                 aiLabel.setWrapText(true);
-                aiLabel.setStyle("-fx-background-color: lightgreen; -fx-padding: 10; -fx-background-radius: 5;");
+                aiLabel.setStyle("-fx-background-color: lightblue; -fx-padding: 10; -fx-background-radius: 5;");
                 aiLabel.maxWidthProperty().bind(scrollPane.widthProperty().subtract(25));
                 dialogContainer.getChildren().add(aiLabel);
 
@@ -244,7 +244,7 @@ public class ChatWindowController {
             // Display user's message
             Label userLabel = new Label("You: " + input);
             userLabel.setWrapText(true);
-            userLabel.setStyle("-fx-background-color: lightblue; -fx-padding: 10; -fx-background-radius: 5;");
+            userLabel.setStyle("-fx-background-color: #e7e6ea; -fx-padding: 10; -fx-background-radius: 5;");
             userLabel.maxWidthProperty().bind(scrollPane.widthProperty().subtract(25));
             dialogContainer.getChildren().add(userLabel);
 
@@ -281,7 +281,7 @@ public class ChatWindowController {
                     // Display assistant's response
                     Label aiLabel = new Label("Assistant: " + assistantResponse);
                     aiLabel.setWrapText(true);
-                    aiLabel.setStyle("-fx-background-color: lightgreen; -fx-padding: 10; -fx-background-radius: 5;");
+                    aiLabel.setStyle("-fx-background-color:lightblue; -fx-padding: 10; -fx-background-radius: 5;");
                     aiLabel.maxWidthProperty().bind(scrollPane.widthProperty().subtract(25));
                     dialogContainer.getChildren().add(aiLabel);
 
@@ -450,7 +450,7 @@ public class ChatWindowController {
 
     private String chatGPT(String apiKey, JSONArray messages) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String model = "gpt-3.5-turbo"; // Or any other available model
+        String model = "gpt-4o"; // Or any other available model
 
         try {
             // Build the JSON body
