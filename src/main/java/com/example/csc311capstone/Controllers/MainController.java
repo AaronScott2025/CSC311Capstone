@@ -1,6 +1,7 @@
 package com.example.csc311capstone.Controllers;
 
 import com.example.csc311capstone.Functions.Invest;
+import com.example.csc311capstone.Functions.Locations;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -22,6 +25,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.File;
+import java.util.List;
 
 /**
  * REFERENCES:
@@ -71,7 +75,18 @@ public class MainController {
     }
 
     @FXML
-    void relocatePressed(ActionEvent event) {
+    void relocatePressed(ActionEvent event) throws FileNotFoundException {
+        Locations l = new Locations("test",1,1,1,1);
+        List<Locations> StateData = l.knn(5.6,2.3,1.1);
+        StateData.sort(Locations::compareTo);
+        List<Locations> first = StateData.subList(0,Math.min(3, StateData.size()));
+        List<Locations> last = StateData.subList(StateData.size() - 3,StateData.size());
+        for(Locations loc : first) {
+            System.out.println(loc.getState() + "  " + loc.getDist());
+        }
+        for(Locations loc : last) {
+            System.out.println(loc.getState() + "  " + loc.getDist());
+        }
 
     }
     public void initialize(String username) {
