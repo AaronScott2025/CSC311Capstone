@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -43,21 +44,16 @@
          </effect></Rectangle>
       <MenuBar blendMode="COLOR_DODGE" prefHeight="28.0" prefWidth="950.0" scaleShape="false">
         <menus>
-            <Menu mnemonicParsing="false" text="Profile">
+            <Menu fx:id="profileButton" mnemonicParsing="false" text="Profile">
                <items>
                   <MenuItem fx:id="profileInfo" mnemonicParsing="false" onAction="#viewInfo" text="Info" />
-                  <MenuItem fx:id="profileSalary" mnemonicParsing="false" onAction="#updateSalary" text="Change Salary" />
-                  <MenuItem fx:id="setLocation" mnemonicParsing="false" onAction="#updateLocation" text="Set Location" />
+                  <MenuItem fx:id="profileSalary" mnemonicParsing="false" onAction="#showSalaryBar" text="Change Salary" />
+                  <MenuItem fx:id="setLocation" mnemonicParsing="false" onAction="#showLocationBar" text="Set Location" />
                </items>
             </Menu>
           <Menu mnemonicParsing="false" text="System">
             <items>
               <MenuItem fx:id="shutDown" mnemonicParsing="false" onAction="#shutdownapp" text="Exit" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="FAQ">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About Us" />
             </items>
           </Menu>
         </menus>
@@ -69,6 +65,38 @@
       <Label fx:id="lblUser" alignment="CENTER" layoutX="-6.0" layoutY="437.0" prefHeight="129.0" prefWidth="959.0" text="Welcome: Username!" textAlignment="CENTER">
          <font>
             <Font size="47.0" />
+         </font>
+      </Label>
+      <Label fx:id="salLbl" layoutX="500.0" layoutY="96.0" prefHeight="51.0" prefWidth="148.0" text="Change Salary: " visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="salaryField" layoutX="660.0" layoutY="109.0" promptText="Enter a whole number" visible="false" />
+      <Label fx:id="locLBL" layoutX="500.0" layoutY="141.0" prefHeight="51.0" prefWidth="160.0" text="Change Location: " visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="LocationField" layoutX="660.0" layoutY="154.0" promptText="Enter a state" visible="false" />
+      <Button fx:id="updateBtn" layoutX="825.0" layoutY="118.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="58.0" prefWidth="85.0" style="-fx-background-color: #FFD2BA;" text="Update" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="usernameLabel" alignment="CENTER" layoutX="527.0" layoutY="91.0" prefHeight="39.0" prefWidth="266.0" text="Username: &lt;USERNAME&gt;" visible="false">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="salaryLabel" alignment="CENTER" layoutX="527.0" layoutY="135.0" prefHeight="39.0" prefWidth="266.0" text="Salary: &lt;SALARY&gt;" visible="false">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="locationLabel" alignment="CENTER" layoutX="527.0" layoutY="179.0" prefHeight="39.0" prefWidth="266.0" text="Location: &lt;LOCATION&gt;" visible="false">
+         <font>
+            <Font size="23.0" />
          </font>
       </Label>
    </children>

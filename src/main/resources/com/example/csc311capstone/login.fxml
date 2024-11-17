@@ -52,7 +52,7 @@
       </Label>
       <ImageView fitHeight="191.0" fitWidth="200.0" layoutX="478.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../FutureLinkTEMP.png" />
+            <Image url="@../../../FutureLinkTEMP.jpg" />
          </image>
       </ImageView>
    </children>
