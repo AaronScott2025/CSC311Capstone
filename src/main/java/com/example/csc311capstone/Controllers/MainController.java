@@ -7,10 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -75,18 +72,15 @@ public class MainController {
     }
 
     @FXML
-    void relocatePressed(ActionEvent event) throws FileNotFoundException {
-        Locations l = new Locations("test",1,1,1,1);
-        List<Locations> StateData = l.knn(5.6,2.3,1.1);
-        StateData.sort(Locations::compareTo);
-        List<Locations> first = StateData.subList(0,Math.min(3, StateData.size()));
-        List<Locations> last = StateData.subList(StateData.size() - 3,StateData.size());
-        for(Locations loc : first) {
-            System.out.println(loc.getState() + "  " + loc.getDist());
-        }
-        for(Locations loc : last) {
-            System.out.println(loc.getState() + "  " + loc.getDist());
-        }
+    void relocatePressed(ActionEvent event) throws IOException {
+        current = (Stage) invest.getScene().getWindow();
+        current.hide();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/LocationsQuestions.fxml"));
+        Parent root = loader.load();
+        Scene s = new Scene(root);
+        substage.setScene(s);
+        substage.setTitle("Relocation");
+        substage.show();
 
     }
     public void initialize(String username) {
@@ -224,6 +218,156 @@ public class MainController {
         FXMLLoader fx = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/Invest.fxml"));
         Scene s = new Scene(fx.load());
         substage.setScene(s);
+    }
+    /**
+     * Function 2 Controller
+     */
+    /**
+     * Locations.fxml
+     */
+    @FXML
+    private Label bot1;
+
+    @FXML
+    private Label bot2;
+
+    @FXML
+    private Label bot3;
+
+    @FXML
+    private Label num1;
+
+    @FXML
+    private Label num2;
+
+    @FXML
+    private Label num3;
+
+    @FXML
+    private Button retryLocation;
+
+    @FXML
+    void retryLocations(ActionEvent event) throws IOException {
+        FXMLLoader fx = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/LocationsQuestions.fxml"));
+        Scene s = new Scene(fx.load());
+        substage.setScene(s);
+    }
+
+    /**
+     * LocationsQuestions.fxml
+     */
+    @FXML
+    private MenuButton Question2;
+
+    @FXML
+    private MenuButton Question3;
+
+    @FXML
+    private MenuButton Question4;
+
+    @FXML
+    private MenuButton importanceCost;
+
+    @FXML
+    private MenuButton importanceCrime;
+
+    @FXML
+    private MenuButton importanceRecreation;
+
+    @FXML
+    private MenuItem kinda;
+
+    @FXML
+    private MenuItem lux;
+
+    @FXML
+    private MenuItem no;
+
+    @FXML
+    private MenuItem notalot;
+
+    @FXML
+    private MenuItem one,one1,one2;
+
+    @FXML
+    private MenuItem simple;
+
+    @FXML
+    private MenuItem three,three1,three2;
+
+    @FXML
+    private MenuItem two,two1,two2;
+
+    @FXML
+    private MenuItem very;
+
+    @FXML
+    private MenuItem yes;
+    @FXML
+    private Label errorHandler;
+
+    @FXML
+    void changeText(ActionEvent event) {
+        MenuItem m = (MenuItem) event.getSource();
+        MenuButton mb = (MenuButton) m.getParentPopup().getOwnerNode();
+        mb.setText(m.getText());
+
+    }
+    @FXML
+    void showLocations(ActionEvent event) throws IOException {
+        FXMLLoader fx = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/Locations.fxml"));
+        Parent root = fx.load();
+
+        MainController m = fx.getController();
+        double initCOL = 5;
+        double initREC = 5;
+        double initCRIME = 5;
+
+        int q1 = Integer.parseInt(importanceCost.getText()) - 2;
+        int q2 = Integer.parseInt(importanceRecreation.getText()) - 2;
+        int q3 = Integer.parseInt(importanceCrime.getText()) - 2;
+
+        if(q1 == q2 || q1 == q3 || q2 == q3) {
+            errorHandler.setVisible(true);
+            errorHandler.setText("Inputs for question 1 cannot be the same. Please make sure only one number is used for each category.");
+        } else {
+            initCOL = initCOL + q1;
+            initREC = initREC + q2;
+            initCRIME = initCRIME + q3;
+
+            if (Question2.getText().equals("Luxury")) {
+                initCOL = initCOL + 2;
+            } else {
+                initCOL = initCOL - 2;
+            }
+            if (Question3.getText().equals("No")) {
+                initCRIME = initCRIME + 2;
+            } else {
+                initCRIME = initCRIME - 2;
+            }
+            if (Question4.getText().equals("Not alot")) {
+                initREC = initREC + 2;
+            } else if (Question4.getText().equals("Very")) {
+                initREC = initREC - 2;
+            }
+
+            Locations l = new Locations("test", initCOL, initREC, initCRIME, 1);
+            List<Locations> StateData = l.knn(initCOL, initREC, initCRIME);
+            StateData.sort(Locations::compareTo);
+            List<Locations> first = StateData.subList(0, Math.min(3, StateData.size()));
+            List<Locations> last = StateData.subList(StateData.size() - 3, StateData.size());
+            Locations[] firstList = first.toArray(new Locations[3]);
+            Locations[] lastList = last.toArray(new Locations[3]);
+            m.num1.setText("Number 1 Choice: " + firstList[0].getState() + " | " + Math.round(100 * (1 - (firstList[0].getDist() / 10))) + "%");
+            m.num2.setText("Number 2 Choice: " + firstList[1].getState() + " | " + Math.round(100 * (1 - (firstList[1].getDist() / 10))) + "%");
+            m.num3.setText("Number 3 Choice: " + firstList[2].getState() + " | " + Math.round(100 * (1 - (firstList[2].getDist() / 10))) + "%");
+            m.bot1.setText("Bottom 1 Choice: " + lastList[0].getState() + " | " + Math.round(100 * (1 - (lastList[0].getDist() / 10))) + "%");
+            m.bot2.setText("Bottom 2 Choice: " + lastList[1].getState() + " | " + Math.round(100 * (1 - (lastList[1].getDist() / 10))) + "%");
+            m.bot3.setText("Bottom 3 Choice: " + lastList[2].getState() + " | " + Math.round(100 * (1 - (lastList[2].getDist() / 10))) + "%");
+            Scene s = new Scene(root);
+            substage.setScene(s);
+            substage.show();
+        }
     }
     /**
      * GLOBAL FUNCTIONS
