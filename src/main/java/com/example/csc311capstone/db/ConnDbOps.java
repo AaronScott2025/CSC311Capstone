@@ -68,15 +68,33 @@ public class ConnDbOps {
             preparedStatement.setString(1, username);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                User s = new User(resultSet.getInt("salary"), resultSet.getString("location"),resultSet.getString("password"),resultSet.getString("username"));
+                User s = new User(resultSet.getInt("salary"), resultSet.getString("location"), resultSet.getString("password"), resultSet.getString("username"));
                 return s;
             } else {
-                User s = new User(0,"","","");
+                User s = new User(0, "", "", "");
                 return s;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
+    public boolean updateUser(User u) {
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "UPDATE users SET salary = ?, location = ? WHERE username = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, u.getSalary());
+            preparedStatement.setString(2, u.getLocation());
+            preparedStatement.setString(3, u.getUsername());
+            int row = preparedStatement.executeUpdate();
+            if (row > 0) {
+                System.out.println("User updated successfully");
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
+
 }

@@ -80,6 +80,7 @@ public class LoginController {
             stage.setScene(s);
             stage.setTitle("Future Link");
             MainController mc = f.getController();
+            mc.initUser(user);
             mc.deleteChart();
             mc.initialize(user);
             stage.show();
