@@ -1,16 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.csc311capstone.Controllers.MainController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311capstone.Controllers.MainController">
+   <children>
+      <ImageView fitHeight="733.0" fitWidth="803.0" layoutX="-6.0" layoutY="-4.0">
+         <image>
+            <Image url="@../../../orangepastel.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="328.0" prefHeight="100.0" prefWidth="155.0" text="Results">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="149.0" layoutY="88.0" prefHeight="58.0" prefWidth="496.0" text="These are your top 3, and worst 3:" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="retryLocation" layoutX="659.0" layoutY="606.0" mnemonicParsing="false" onAction="#retryLocations" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #FFD2BA; -fx-border-color: black;" text="Restart">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="exitBTN" layoutX="659.0" layoutY="668.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #FFD2BA; -fx-border-color: black;" text="Exit">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Line endX="698.0" layoutX="103.0" layoutY="362.0" startX="-113.5" />
+      <Label fx:id="num1" alignment="CENTER" layoutX="112.0" layoutY="176.0" prefHeight="42.0" prefWidth="587.0" text="Number 1 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="num2" alignment="CENTER" layoutX="112.0" layoutY="226.0" prefHeight="42.0" prefWidth="587.0" text="Number 2 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="num3" alignment="CENTER" layoutX="112.0" layoutY="275.0" prefHeight="42.0" prefWidth="587.0" text="Number 3 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bot1" alignment="CENTER" layoutX="112.0" layoutY="387.0" prefHeight="42.0" prefWidth="587.0" text="Bottom 1 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bot2" alignment="CENTER" layoutX="112.0" layoutY="429.0" prefHeight="42.0" prefWidth="587.0" text="Bottom 2 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="bot3" alignment="CENTER" layoutX="112.0" layoutY="478.0" prefHeight="42.0" prefWidth="587.0" text="Bottom 3 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
