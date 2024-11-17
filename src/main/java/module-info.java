@@ -2,7 +2,11 @@ module com.example.csc311capstone {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires io.github.cdimascio.dotenv.java;
+    requires org.json;
+    requires org.apache.pdfbox;
     requires com.opencsv;
+
 
 
     opens com.example.csc311capstone to javafx.fxml;
