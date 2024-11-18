@@ -290,6 +290,7 @@ public class MainController {
 
         Scene s = new Scene(root);
         substage.setScene(s);
+        substage.setTitle("Budgeting");
         substage.show();
     }
 
