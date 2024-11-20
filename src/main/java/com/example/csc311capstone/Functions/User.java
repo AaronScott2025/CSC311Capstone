@@ -3,7 +3,7 @@ package com.example.csc311capstone.Functions;
 
 /**
  * User:
- * The database will have the data for each user, as well as password, location, and salary.
+ * The database will have the data for each user, as well as password, location, and salary
  *
  * author: @AaronScott2025
  */
