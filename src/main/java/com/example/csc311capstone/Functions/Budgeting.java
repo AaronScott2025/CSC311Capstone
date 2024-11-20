@@ -5,6 +5,8 @@ package com.example.csc311capstone.Functions;
  * By taking parameters of user salary, location, household size, estimated taxes(calculated), etc.,
  * the application will generate tables of month to month, or week to week budgeting strategies that adapt
  * to the user’s data.
+ *
+ * author: @BryantVelasquez
  */
 
 public class Budgeting {

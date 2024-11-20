@@ -3,8 +3,6 @@ package com.example.csc311capstone.Controllers;
 import com.example.csc311capstone.Functions.Budgeting;
 import com.example.csc311capstone.Functions.Invest;
 import com.example.csc311capstone.Functions.Locations;
-import com.example.csc311capstone.Functions.User;
-import com.example.csc311capstone.db.ConnDbOps;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,9 +12,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -34,14 +29,6 @@ import java.util.List;
  */
 
 public class MainController {
-    private User u = new User(0,null,null,null);
-    private String location;
-    private int salary;
-    @FXML
-    private TextField LocationField;
-    @FXML
-    private Label locationLabel, salaryLabel, usernameLabel;
-
     @FXML
     private Button budget;
 
@@ -53,35 +40,11 @@ public class MainController {
 
     @FXML
     private Label lblUser;
-
     @FXML
-    private Label locLBL;
-
-    @FXML
-    private Menu profileButton;
-
-    @FXML
-    private MenuItem profileInfo;
-
-    @FXML
-    private MenuItem profileSalary;
+    private MenuItem shutDown;
 
     @FXML
     private Button relocate;
-
-    @FXML
-    private Label salLbl;
-
-    @FXML
-    private TextField salaryField;
-
-    @FXML
-    private MenuItem setLocation;
-    @FXML
-    private Button updateBtn;
-
-    @FXML
-    private MenuItem shutDown;
     private static Stage current;
     private static Stage substage = new Stage();
 
@@ -132,7 +95,6 @@ public class MainController {
     public void initialize(String username) {
         lblUser.setText("Welcome: " + username);
     }
-
 
     /**
      * ========================================================================================================================================================== *
@@ -290,7 +252,6 @@ public class MainController {
 
         Scene s = new Scene(root);
         substage.setScene(s);
-        substage.setTitle("Budgeting");
         substage.show();
     }
 
@@ -511,64 +472,11 @@ public class MainController {
 
 
     public void viewInfo(ActionEvent actionEvent) {
-        salLbl.setVisible(false);
-        locLBL.setVisible(false);
-        salaryField.setVisible(false);
-        LocationField.setVisible(false);
-        updateBtn.setVisible(false);
-
-        usernameLabel.setText("Username: " + u.getUsername());
-        salaryLabel.setText("Salary: " + u.getSalary());
-        locationLabel.setText("Location: " + u.getLocation());
-
-        usernameLabel.setVisible(true);
-        salaryLabel.setVisible(true);
-        locationLabel.setVisible(true);
-
-    }
-    public void updateUser(ActionEvent actionEvent) {
-        if(salaryField.visibleProperty().getValue()) {
-            updateSalary();
-        }
-        if(LocationField.visibleProperty().getValue()) {
-            updateLocation();
-        }
-        ConnDbOps cd = new ConnDbOps();
-        cd.updateUser(u);
-        salLbl.setVisible(false);
-        locLBL.setVisible(false);
-        salaryField.setVisible(false);
-        LocationField.setVisible(false);
-        updateBtn.setVisible(false);
     }
 
-    public void updateSalary() {
-        salary = Integer.parseInt(salaryField.getText());
-        u.setSalary(salary);
+    public void updateSalary(ActionEvent actionEvent) {
     }
 
-    public void updateLocation() {
-        location = LocationField.getText();
-        u.setLocation(location);
-    }
-    public void initUser(String username) {
-        ConnDbOps cd = new ConnDbOps();
-        u = cd.getUser(username);
-    }
-    public void showSalaryBar() {
-        usernameLabel.setVisible(false);
-        salaryLabel.setVisible(false);
-        locationLabel.setVisible(false);
-        salLbl.setVisible(true);
-        salaryField.setVisible(true);
-        updateBtn.setVisible(true);
-    }
-    public void showLocationBar() {
-        usernameLabel.setVisible(false);
-        salaryLabel.setVisible(false);
-        locationLabel.setVisible(false);
-        locLBL.setVisible(true);
-        LocationField.setVisible(true);
-        updateBtn.setVisible(true);
+    public void updateLocation(ActionEvent actionEvent) {
     }
 }
