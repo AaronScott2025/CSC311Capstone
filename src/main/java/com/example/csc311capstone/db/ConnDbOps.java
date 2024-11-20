@@ -101,6 +101,13 @@ public class ConnDbOps {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * updateUser(user)
+     * Updates the users info in the database.
+     * @param u
+     * @return
+     */
     public boolean updateUser(User u) {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
