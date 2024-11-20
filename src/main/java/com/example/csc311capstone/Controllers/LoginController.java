@@ -21,6 +21,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * LoginController
+ *
+ * This class controls the login screens, including login.fxml, and createAccount.fxml. The two are seperated via Javadoc
+ * author: @AaronScott2025
+ */
+
 public class LoginController {
 
     @FXML

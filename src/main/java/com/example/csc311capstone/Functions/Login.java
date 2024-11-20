@@ -3,10 +3,9 @@ package com.example.csc311capstone.Functions;
 /**
  * Login:
  * The application will utilize a login method with a standard ROT-13 encryption method for storage in the database
- * (Letternum = Letternum + 13 % 26).
+ * (Letternum = Letternum + 13 % 26)
  *
- * KNOWN ISSUES:
- * -.equals on 2 encrypted passwords falsly marked as "True"
+ * author: @AaronScott2025
  */
 
 public class Login {
@@ -32,7 +31,14 @@ public class Login {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String encryption() { //Only needs encryption, because this is only used to ensure security in the database. Both creation and login uses this
+
+    /**
+     * encryption()
+     * Only needs encryption, because this is only used to ensure security in the database. Both creation and login uses this.
+     * The method uses "ROT-13" for encryption. Simple, but ensures damage control on potential data leaks.
+     * @return
+     */
+    public String encryption() {
         StringBuilder encryptedPassword = new StringBuilder();
         for (char ch: password.toCharArray()) {
             int value = ch - 'a' + 1;

@@ -8,13 +8,24 @@ import com.example.csc311capstone.Functions.User;
 
 import java.sql.*;
 
-
+/**
+ * ConnDbOps-
+ * All database operations necessary for this project can be found here.
+ *
+ * author: @AaronScott2025
+ */
 public class ConnDbOps {
     final String MYSQL_SERVER_URL = "jdbc:mysql://scota311server.mysql.database.azure.com/";
     final String DB_URL = "jdbc:mysql://scota311server.mysql.database.azure.com/311db";
     final String USERNAME = "scotadmin";
     final String PASSWORD = "Farmingdale14@";
 
+    /**
+     * connectToDatabase()
+     * Tries to establish a connection with the database. If its found to have users, then it returns true, otherwise it
+     * will return false.
+     * @return
+     */
     public boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
         try {
@@ -27,7 +38,6 @@ public class ConnDbOps {
                     hasRegistredUsers = true;
                 }
             }
-
             statement.close();
             conn.close();
 
@@ -38,6 +48,12 @@ public class ConnDbOps {
         return hasRegistredUsers;
     }
 
+    /**
+     * registerUser(User)
+     * Takes in a user, and initializes them in the database with an encrypted password (SEE LOGIN.JAVA), and their username.
+     * Everything else is null for now, and is set in the profile editor in the main GUI (MAINCONTROLLER).
+     * @param s
+     */
     public void registerUser(User s) {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -60,6 +76,13 @@ public class ConnDbOps {
 
     }
 
+    /**
+     * getUser(String)
+     * Uses the primary key (username) to retireve the user, initialize the user to a User dataclass, and return it to the
+     * function that called it (LOGINCONTROLLER).
+     * @param username
+     * @return
+     */
     public User getUser(String username) {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -78,6 +101,13 @@ public class ConnDbOps {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * updateUser(user)
+     * Updates the users info in the database.
+     * @param u
+     * @return
+     */
     public boolean updateUser(User u) {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
