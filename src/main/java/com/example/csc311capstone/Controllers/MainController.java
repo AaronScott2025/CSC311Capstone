@@ -276,7 +276,7 @@ public class MainController {
     void budgetPress(ActionEvent event) throws IOException {
         current = (Stage) budget.getScene().getWindow();
         current.hide();
-        Budgeting b = new Budgeting(100000, "New York");
+        Budgeting b = new Budgeting(u.getSalary(), u.getLocation());
         makeChartBudget(b); //Makes the png for the chart using API
 
         FXMLLoader fx = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/Budgetting.fxml"));
