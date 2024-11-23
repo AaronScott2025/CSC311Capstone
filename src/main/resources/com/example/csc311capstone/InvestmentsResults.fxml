@@ -34,6 +34,6 @@
       <Line endX="381.5" endY="-11.0" layoutX="126.0" layoutY="502.0" startX="381.5" startY="177.0" />
       <Line endX="558.5" endY="-11.0" layoutX="183.0" layoutY="503.0" startX="-205.0" startY="-11.0" />
       <Line endX="371.5999755859375" endY="-10.39996337890625" layoutX="136.0" layoutY="635.0" startX="-148.39999389648438" startY="-10.39996337890625" />
-      <Label layoutX="2.0" layoutY="614.0" prefHeight="71.0" prefWidth="494.0" text="Retirement savings can act as &quot;passive saving&quot;, as 10% of either your salary or the money you choose to invest will be added to a seperate bank account annually, accumulating for when you choose to cash out at retirement." wrapText="true" />
+      <Label layoutX="2.0" layoutY="614.0" prefHeight="71.0" prefWidth="494.0" text="Retirement accounts are typically offered through companies in a variety of ways. These accounts typically accumulate 10% per year on average, coming at the cost of typically not being able to touch the money until a certain age." wrapText="true" />
    </children>
 </Pane>
