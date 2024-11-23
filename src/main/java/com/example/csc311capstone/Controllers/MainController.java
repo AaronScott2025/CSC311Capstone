@@ -183,29 +183,35 @@ public class MainController {
         StringBuilder SP = new StringBuilder();
         StringBuilder HYSA = new StringBuilder();
         StringBuilder Bond = new StringBuilder();
+        StringBuilder Retirement = new StringBuilder();
         double[] SP_double = in.eightPercent();
         double[] HYSA_double = in.fivePercent();
         double[] Bond_double = in.threePercent();
+        double[] Retirement_double = in.tenPercent();
         data.append("[");
         SP.append("[");
         HYSA.append("[");
         Bond.append("[");
+        Retirement.append("[");
         for(int i = 0; i < in.getYears();i++) {
             data.append("'" + i + "'");
             SP.append(SP_double[i]);
             HYSA.append(HYSA_double[i]);
             Bond.append(Bond_double[i]);
+            Retirement.append(Retirement_double[i]);
             if(i + 1 < in.getYears()) {
                 data.append(", ");
                 SP.append(", ");
                 HYSA.append(", ");
                 Bond.append(", ");
+                Retirement.append(", ");
             }
         }
         data.append("]");
         SP.append("]");
         HYSA.append("]");
         Bond.append("]");
+        Retirement.append("]");
 //        System.out.println(data.toString());
 //        System.out.println(SP.toString());
 //        System.out.println(HYSA.toString());
@@ -229,6 +235,11 @@ public class MainController {
                 + "      borderColor: 'green',"
                 + "      fill: false,"
                 + "      data: " + Bond
+                + "    }, {"
+                + "      label: 'Retirement',"
+                + "      borderColor: 'yellow',"
+                + "      fill: false,"
+                + "      data: " + Retirement
                 + "    }]"
                 + "  }"
                 + "}";

@@ -72,5 +72,14 @@ public class Invest {
         }
         return compound;
     }
+    public double[] tenPercent() { //Retirement
+        double[] compound = new double[years];
+        double temp = initial;
+        for(int i = 0; i < years; i++) {
+            temp = yearlyInvestment + (temp*1.10);
+            compound[i] = temp;
+        }
+        return compound;
+    }
 
 }
