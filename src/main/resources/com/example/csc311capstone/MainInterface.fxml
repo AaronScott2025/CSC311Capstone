@@ -16,37 +16,25 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311capstone.Controllers.MainController">
    <children>
-      <ImageView fitHeight="559.0" fitWidth="950.0">
+      <ImageView fitHeight="569.0" fitWidth="959.0" layoutX="-9.0" layoutY="-10.0">
          <image>
             <Image url="@../../../pastelground.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="224.0" fitWidth="243.0" layoutX="18.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#85bcff" height="567.0" layoutX="501.0" layoutY="-6.0" stroke="TRANSPARENT" strokeDashOffset="20.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" width="456.0">
+         <effect>
+            <Blend />
+         </effect>
+      </Rectangle>
+      <ImageView fitHeight="224.0" fitWidth="243.0" layoutX="107.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../FutureLinkTEMP.png" />
          </image>
       </ImageView>
-      <Button fx:id="budget" layoutX="500.0" layoutY="360.0" mnemonicParsing="false" onAction="#budgetPress" prefHeight="58.0" prefWidth="160.0" style="-fx-background-color: #BAFFBB;" text="Budgeting">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="invest" layoutX="725.0" layoutY="360.0" mnemonicParsing="false" onAction="#investPress" prefHeight="58.0" prefWidth="160.0" style="-fx-background-color: #BAD7FF;" text="Investments">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="career" layoutX="275.0" layoutY="360.0" mnemonicParsing="false" onAction="#careerPress" prefHeight="58.0" prefWidth="160.0" style="-fx-background-color: #FFF4BA;" text="Career/Education">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" blendMode="OVERLAY" fill="#c9e1ff" height="115.0" layoutX="-17.0" layoutY="444.0" stroke="TRANSPARENT" strokeType="INSIDE" width="969.0">
-         <effect>
-            <Blend />
-         </effect></Rectangle>
-      <MenuBar blendMode="COLOR_DODGE" prefHeight="28.0" prefWidth="950.0" scaleShape="false">
+      <MenuBar blendMode="MULTIPLY" layoutX="501.0" prefHeight="28.0" prefWidth="458.0" scaleShape="false">
         <menus>
             <Menu fx:id="profileButton" mnemonicParsing="false" text="Profile">
                <items>
-                  <MenuItem fx:id="profileInfo" mnemonicParsing="false" onAction="#viewInfo" text="Info" />
                   <MenuItem fx:id="profileSalary" mnemonicParsing="false" onAction="#showSalaryBar" text="Change Salary" />
                   <MenuItem fx:id="setLocation" mnemonicParsing="false" onAction="#showLocationBar" text="Set Location" />
                </items>
@@ -58,43 +46,55 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="relocate" layoutX="50.0" layoutY="360.0" mnemonicParsing="false" onAction="#relocatePressed" prefHeight="58.0" prefWidth="160.0" style="-fx-background-color: #FFD2BA;" text="Relocation">
+      <Button fx:id="budget" layoutX="649.0" layoutY="280.0" mnemonicParsing="false" onAction="#budgetPress" prefHeight="51.0" prefWidth="160.0" style="-fx-background-color: #BAFFBB; -fx-border-color: black; -fx-border-width: 2 2 2 2; -fx-background-insets: 0;" text="Budgeting">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label fx:id="lblUser" alignment="CENTER" layoutX="-6.0" layoutY="437.0" prefHeight="129.0" prefWidth="959.0" text="Welcome: Username!" textAlignment="CENTER">
+      <Button fx:id="invest" layoutX="649.0" layoutY="360.0" mnemonicParsing="false" onAction="#investPress" prefHeight="51.0" prefWidth="160.0" style="-fx-background-color: #BAD7FF; -fx-border-color: black; -fx-border-width: 2 2 2 2; -fx-background-insets: 0;" text="Investments">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="career" layoutX="649.0" layoutY="200.0" mnemonicParsing="false" onAction="#careerPress" prefHeight="51.0" prefWidth="160.0" style="-fx-background-color: #FFF4BA; -fx-border-color: black; -fx-border-width: 2 2 2 2; -fx-background-insets: 0;" text="Career/Education">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="relocate" layoutX="649.0" layoutY="120.0" mnemonicParsing="false" onAction="#relocatePressed" prefHeight="51.0" prefWidth="160.0" style="-fx-background-color: #FFD2BA; -fx-border-color: black; -fx-border-width: 2 2 2 2; -fx-background-insets: 0;" text="Relocation">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label fx:id="lblUser" alignment="CENTER" layoutX="-1.0" prefHeight="129.0" prefWidth="503.0" text="Welcome: Username!" textAlignment="CENTER">
          <font>
             <Font size="47.0" />
          </font>
       </Label>
-      <Label fx:id="salLbl" layoutX="500.0" layoutY="96.0" prefHeight="51.0" prefWidth="148.0" text="Change Salary: " visible="false">
+      <Label fx:id="salLbl" layoutX="87.0" layoutY="129.0" prefHeight="51.0" prefWidth="148.0" text="Change Salary: " visible="false">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="salaryField" layoutX="660.0" layoutY="109.0" promptText="Enter a whole number" visible="false" />
-      <Label fx:id="locLBL" layoutX="500.0" layoutY="141.0" prefHeight="51.0" prefWidth="160.0" text="Change Location: " visible="false">
+      <TextField fx:id="salaryField" layoutX="257.0" layoutY="142.0" promptText="Enter a whole number" visible="false" />
+      <Label fx:id="locLBL" layoutX="75.0" layoutY="180.0" prefHeight="51.0" prefWidth="160.0" text="Change Location: " visible="false">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="LocationField" layoutX="660.0" layoutY="154.0" promptText="Enter a state" visible="false" />
-      <Button fx:id="updateBtn" layoutX="825.0" layoutY="118.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="58.0" prefWidth="85.0" style="-fx-background-color: #FFD2BA;" text="Update" visible="false">
+      <TextField fx:id="LocationField" layoutX="257.0" layoutY="193.0" promptText="Enter a state" visible="false" />
+      <Button fx:id="updateBtn" layoutX="416.0" layoutY="163.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="58.0" prefWidth="85.0" style="-fx-background-color: #FFD2BA;" text="Update" visible="false">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="usernameLabel" alignment="CENTER" layoutX="527.0" layoutY="91.0" prefHeight="39.0" prefWidth="266.0" text="Username: &lt;USERNAME&gt;" visible="false">
+      <Label fx:id="usernameLabel" alignment="CENTER" layoutX="98.0" layoutY="135.0" prefHeight="39.0" prefWidth="274.0" text="Username: &lt;USERNAME&gt;">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label fx:id="salaryLabel" alignment="CENTER" layoutX="527.0" layoutY="135.0" prefHeight="39.0" prefWidth="266.0" text="Salary: &lt;SALARY&gt;" visible="false">
+      <Label fx:id="salaryLabel" alignment="CENTER" layoutX="102.0" layoutY="181.0" prefHeight="39.0" prefWidth="266.0" text="Salary: &lt;SALARY&gt;">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label fx:id="locationLabel" alignment="CENTER" layoutX="527.0" layoutY="179.0" prefHeight="39.0" prefWidth="266.0" text="Location: &lt;LOCATION&gt;" visible="false">
+      <Label fx:id="locationLabel" alignment="CENTER" layoutX="102.0" layoutY="226.0" prefHeight="39.0" prefWidth="266.0" text="Location: &lt;LOCATION&gt;">
          <font>
             <Font size="23.0" />
          </font>

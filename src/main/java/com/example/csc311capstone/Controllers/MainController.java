@@ -520,7 +520,7 @@ public class MainController {
     }
 
 
-    public void viewInfo(ActionEvent actionEvent) {
+    public void viewInfo() {
         salLbl.setVisible(false);
         locLBL.setVisible(false);
         salaryField.setVisible(false);
@@ -544,12 +544,13 @@ public class MainController {
             updateLocation();
         }
         ConnDbOps cd = new ConnDbOps();
-        cd.updateUser(u);
+        u = cd.updateUser(u);
         salLbl.setVisible(false);
         locLBL.setVisible(false);
         salaryField.setVisible(false);
         LocationField.setVisible(false);
         updateBtn.setVisible(false);
+        viewInfo();
     }
 
     public void updateSalary() {

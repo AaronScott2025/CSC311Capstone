@@ -90,6 +90,7 @@ public class LoginController {
             mc.initUser(user);
             mc.deleteChart();
             mc.initialize(user);
+            mc.viewInfo();
             stage.show();
             Stage temp = (Stage) passTxt.getScene().getWindow();
             temp.close();

@@ -5,22 +5,18 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311capstone.Controllers.MainController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311capstone.Controllers.MainController">
    <children>
-      <ImageView fitHeight="720.0" fitWidth="722.0" layoutX="-12.0" layoutY="-41.0">
+      <ImageView fitHeight="567.0" fitWidth="722.0" layoutX="-12.0" layoutY="-41.0">
          <image>
             <Image url="@../../../greenpastel.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" blendMode="OVERLAY" fill="#bcbcbc" height="192.0" layoutX="-22.0" layoutY="491.0" stroke="BLACK" strokeType="INSIDE" width="734.0" />
-      <Button fx:id="exitBTNResult" layoutX="551.0" layoutY="566.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #BAFFBB; -fx-border-color: black;" text="Exit">
+      <Button fx:id="exitBTNResult" layoutX="295.0" layoutY="470.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #BAFFBB; -fx-border-color: black;" text="Exit">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ImageView fx:id="chartViewBudgetting" fitHeight="480.0" fitWidth="666.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <Line endX="558.5" endY="-11.0" layoutX="183.0" layoutY="503.0" startX="-205.0" startY="-11.0" />
+      <ImageView fx:id="chartViewBudgetting" fitHeight="441.0" fitWidth="638.0" layoutX="33.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>

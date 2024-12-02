@@ -108,7 +108,7 @@ public class ConnDbOps {
      * @param u
      * @return
      */
-    public boolean updateUser(User u) {
+    public User updateUser(User u) {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "UPDATE users SET salary = ?, location = ? WHERE username = ?";
@@ -119,12 +119,12 @@ public class ConnDbOps {
             int row = preparedStatement.executeUpdate();
             if (row > 0) {
                 System.out.println("User updated successfully");
-                return true;
+                return u;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return false;
+        return null;
     }
 
 }
