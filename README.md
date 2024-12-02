@@ -23,3 +23,11 @@ Utilizing a series of prompts, the user adjusts the ‘weight’ of variables: �
 **Education/Career:👷👨‍🎓**
 
 Utilizing a series of prompts, the program determines a career shift, or a complete career change dependent on the series of questions. An example for a career change would be: Current: Garbage man, No degree | Suggestion on interests: Art Degree, Graphic Designer. An example of career shift: Current: Software Engineer | Suggestion: Data Scientist
+
+REQUIREMENTS:
+
+OpenAPI Key (In env file)
+
+JDK 20+
+
+A stable Internet connection.
