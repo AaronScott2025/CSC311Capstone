@@ -99,5 +99,6 @@
             <Font size="23.0" />
          </font>
       </Label>
+      <Label fx:id="errorLbl" alignment="CENTER" layoutX="544.0" layoutY="444.0" prefHeight="58.0" prefWidth="371.0" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true" />
    </children>
 </Pane>

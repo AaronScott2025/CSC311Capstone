@@ -9,58 +9,53 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311capstone.Controllers.MainController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc311capstone.Controllers.MainController">
    <children>
-      <ImageView fitHeight="733.0" fitWidth="803.0" layoutX="-6.0" layoutY="-4.0">
+      <ImageView fitHeight="636.0" fitWidth="803.0" layoutX="-6.0" layoutY="-4.0">
          <image>
             <Image url="@../../../orangepastel.png" />
          </image>
       </ImageView>
-      <Label layoutX="328.0" prefHeight="100.0" prefWidth="155.0" text="Results">
+      <Label layoutX="316.0" layoutY="34.0" prefHeight="155.0" prefWidth="164.0" text="Results">
          <font>
-            <Font size="47.0" />
+            <Font name="System Bold" size="47.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="149.0" layoutY="88.0" prefHeight="58.0" prefWidth="496.0" text="These are your top 3, and worst 3:" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Button fx:id="retryLocation" layoutX="659.0" layoutY="606.0" mnemonicParsing="false" onAction="#retryLocations" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #FFD2BA; -fx-border-color: black;" text="Restart">
+      <Button fx:id="retryLocation" layoutX="659.0" layoutY="507.0" mnemonicParsing="false" onAction="#retryLocations" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #FFD2BA; -fx-border-color: black;" text="Restart">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="exitBTN" layoutX="659.0" layoutY="668.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #FFD2BA; -fx-border-color: black;" text="Exit">
+      <Button fx:id="exitBTN" layoutX="659.0" layoutY="565.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #FFD2BA; -fx-border-color: black;" text="Exit">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Line endX="698.0" layoutX="103.0" layoutY="362.0" startX="-113.5" />
-      <Label fx:id="num1" alignment="CENTER" layoutX="112.0" layoutY="176.0" prefHeight="42.0" prefWidth="587.0" text="Number 1 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+      <Label fx:id="num1" alignment="CENTER" layoutX="112.0" layoutY="220.0" prefHeight="42.0" prefWidth="587.0" text="Number 1 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="num2" alignment="CENTER" layoutX="112.0" layoutY="226.0" prefHeight="42.0" prefWidth="587.0" text="Number 2 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+      <Label fx:id="num2" alignment="CENTER" layoutX="112.0" layoutY="262.0" prefHeight="42.0" prefWidth="587.0" text="Number 2 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="num3" alignment="CENTER" layoutX="112.0" layoutY="275.0" prefHeight="42.0" prefWidth="587.0" text="Number 3 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+      <Label fx:id="num3" alignment="CENTER" layoutX="112.0" layoutY="304.0" prefHeight="42.0" prefWidth="587.0" text="Number 3 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="bot1" alignment="CENTER" layoutX="112.0" layoutY="387.0" prefHeight="42.0" prefWidth="587.0" text="Bottom 1 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+      <Label fx:id="bot1" alignment="CENTER" layoutX="112.0" layoutY="363.0" prefHeight="42.0" prefWidth="587.0" text="Bottom 1 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="bot2" alignment="CENTER" layoutX="112.0" layoutY="429.0" prefHeight="42.0" prefWidth="587.0" text="Bottom 2 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+      <Label fx:id="bot2" alignment="CENTER" layoutX="112.0" layoutY="405.0" prefHeight="42.0" prefWidth="587.0" text="Bottom 2 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="bot3" alignment="CENTER" layoutX="112.0" layoutY="478.0" prefHeight="42.0" prefWidth="587.0" text="Bottom 3 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
+      <Label fx:id="bot3" alignment="CENTER" layoutX="104.0" layoutY="447.0" prefHeight="42.0" prefWidth="587.0" text="Bottom 3 Choice: &lt;CHOICE&gt; | &lt;Percent&gt;" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>

@@ -70,7 +70,7 @@ public class MainController {
     private Button relocate;
 
     @FXML
-    private Label salLbl;
+    private Label salLbl,errorLbl;
 
     @FXML
     private TextField salaryField;
@@ -285,23 +285,37 @@ public class MainController {
     private ImageView chartViewBudgetting;
     @FXML
     void budgetPress(ActionEvent event) throws IOException {
-        current = (Stage) budget.getScene().getWindow();
-        current.hide();
-        Budgeting b = new Budgeting(u.getSalary(), u.getLocation());
-        makeChartBudget(b); //Makes the png for the chart using API
+        boolean fail = false;
+        errorLbl.setVisible(false);
+        if(u.getSalary() == 0 || u.getLocation() == null) {
+            errorLbl.setVisible(true);
+            errorLbl.setText("Error: Salary or Location is not set");
+        } else {
+            Budgeting b = new Budgeting(u.getSalary(), u.getLocation());
+            try {
+                makeChartBudget(b); //Makes the png for the chart using API
+            }catch (Exception e) {
+                fail = true;
+                errorLbl.setVisible(true);
+                errorLbl.setText("Error generating chart. Make sure location is spelled correctly, and try again");
+            }
+            if(!fail) {
+                current = (Stage) budget.getScene().getWindow();
+                current.hide();
+                FXMLLoader fx = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/Budgetting.fxml"));
+                Parent root = fx.load();
 
-        FXMLLoader fx = new FXMLLoader(getClass().getResource("/com/example/csc311capstone/Budgetting.fxml"));
-        Parent root = fx.load();
+                MainController c = fx.getController();
+                Path chartpath = Paths.get("chart.png").toAbsolutePath();
+                Image image = new Image(chartpath.toUri().toString());
 
-        MainController c = fx.getController();
-        Path chartpath = Paths.get("chart.png").toAbsolutePath();
-        Image image = new Image(chartpath.toUri().toString());
+                c.chartViewBudgetting.setImage(image);
 
-        c.chartViewBudgetting.setImage(image);
-
-        Scene s = new Scene(root);
-        substage.setScene(s);
-        substage.show();
+                Scene s = new Scene(root);
+                substage.setScene(s);
+                substage.show();
+            }
+        }
     }
 
     private void makeChartBudget(Budgeting b) throws IOException {
@@ -537,20 +551,33 @@ public class MainController {
 
     }
     public void updateUser(ActionEvent actionEvent) {
+        boolean fail = false;
+        boolean salary = false;
+        errorLbl.setVisible(false);
         if(salaryField.visibleProperty().getValue()) {
-            updateSalary();
+            salary = true;
+            try{
+                int test = Integer.parseInt(salaryField.getText());
+                updateSalary();
+                if(LocationField.visibleProperty().getValue()) {
+                    updateLocation();
+                }
+            } catch (NumberFormatException e) {
+                fail = true;
+                errorLbl.setVisible(true);
+                errorLbl.setText("Invalid salary and/or location");
+            }
         }
-        if(LocationField.visibleProperty().getValue()) {
-            updateLocation();
+        if(!fail) {
+            ConnDbOps cd = new ConnDbOps();
+            u = cd.updateUser(u);
+            salLbl.setVisible(false);
+            locLBL.setVisible(false);
+            salaryField.setVisible(false);
+            LocationField.setVisible(false);
+            updateBtn.setVisible(false);
+            viewInfo();
         }
-        ConnDbOps cd = new ConnDbOps();
-        u = cd.updateUser(u);
-        salLbl.setVisible(false);
-        locLBL.setVisible(false);
-        salaryField.setVisible(false);
-        LocationField.setVisible(false);
-        updateBtn.setVisible(false);
-        viewInfo();
     }
 
     public void updateSalary() {

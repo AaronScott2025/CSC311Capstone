@@ -18,12 +18,12 @@
             <Image url="@../../../orangepastel.png" />
          </image>
       </ImageView>
-      <Label layoutX="273.0" prefHeight="100.0" prefWidth="248.0" text="Instructions">
+      <Label layoutX="273.0" layoutY="17.0" prefHeight="100.0" prefWidth="248.0" text="Instructions">
          <font>
-            <Font size="47.0" />
+            <Font name="Dubai Medium" size="47.0" />
          </font>
       </Label>
-      <Label layoutX="149.0" layoutY="88.0" prefHeight="58.0" prefWidth="496.0" text="Please answer each question based on how greatly the statement resonates with your ideals" textAlignment="CENTER" wrapText="true">
+      <Label layoutX="148.0" layoutY="117.0" prefHeight="58.0" prefWidth="496.0" text="Please answer each question based on how greatly the statement resonates with your ideals" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="17.0" />
          </font>
@@ -57,7 +57,7 @@
             <MenuItem fx:id="three2" mnemonicParsing="false" onAction="#changeText" text="3" />
          </items>
       </MenuButton>
-      <Label layoutX="44.0" layoutY="247.0" prefHeight="33.0" prefWidth="367.0" text="Question 1. Rank the following on importance:">
+      <Label layoutX="44.0" layoutY="260.0" prefHeight="33.0" prefWidth="367.0" text="Question 1. Rank the following on importance:">
          <font>
             <Font size="17.0" />
          </font>
@@ -78,7 +78,7 @@
          </font>
       </Label>
       <Line endX="698.0" layoutX="101.0" layoutY="329.0" startX="-113.5" />
-      <Label layoutX="47.0" layoutY="342.0" prefHeight="33.0" prefWidth="361.0" text="Question 2. Do you prefer luxury, or simplicity?">
+      <Label layoutX="47.0" layoutY="346.0" prefHeight="33.0" prefWidth="361.0" text="Question 2. Do you prefer luxury, or simplicity?">
          <font>
             <Font size="17.0" />
          </font>
@@ -91,8 +91,8 @@
       </MenuButton>
       <Line endX="698.0" layoutX="105.0" layoutY="211.0" startX="-113.5" />
       <Line endX="698.0" layoutX="113.0" layoutY="394.0" startX="-113.5" />
-      <Line endX="698.0" layoutX="113.0" layoutY="457.0" startX="-113.5" />
-      <Label layoutX="44.0" layoutY="394.0" prefHeight="74.0" prefWidth="427.0" text="Question 3. Are you comfortable living in an area with a slightly higher crime rate if it offers other benefits?" wrapText="true">
+      <Line endX="698.0" layoutX="113.0" layoutY="468.0" startX="-113.5" />
+      <Label layoutX="47.0" layoutY="395.0" prefHeight="74.0" prefWidth="427.0" text="Question 3. Are you comfortable living in an area with a slightly higher crime rate if it offers other benefits?" wrapText="true">
          <font>
             <Font size="17.0" />
          </font>
@@ -103,7 +103,7 @@
             <MenuItem fx:id="no" mnemonicParsing="false" onAction="#changeText" text="No" />
          </items>
       </MenuButton>
-      <Label layoutX="44.0" layoutY="468.0" prefHeight="74.0" prefWidth="427.0" text="Question 4. How important are the quality of nearby schools, parks, and activities to you in your current state?" wrapText="true">
+      <Label layoutX="47.0" layoutY="469.0" prefHeight="74.0" prefWidth="427.0" text="Question 4. How important are the quality of nearby schools, parks, and activities to you in your current state?" wrapText="true">
          <font>
             <Font size="17.0" />
          </font>
